@@ -10,17 +10,18 @@ We would possibly like to explore how these happiness factors compare in differe
 https://www.kaggle.com/unsdsn/world-happiness
 
 ### Inspiration
-**Geochart**
+**Geochart:**<br>
 ![**Geochart**](images/inspo-geochart.png)<br>
 Source: https://developers.google.com/chart/interactive/docs/gallery/geochart
 
-**Chord Diagram**
-![**Chord Diagram**](images/inspo-chord.png)<br>
-Source: https://observablehq.com/@d3/chord-diagram
-
-**Correlation Diagram**
+**Correlation Diagram:**<br>
 ![**Correlation Diagram**](images/inspo-correlation.png)<br>
 Source: https://www.d3-graph-gallery.com/graph/correlogram_basic.html
+
+**Bubble Chart:**<br>
+![**Bubble Chart**](images/inspo-bubble.png)<br>
+Source: https://developers.google.com/chart/interactive/docs/gallery/bubblechart
+
 
 ### Draft Design 
 A sketch of the final design
@@ -28,13 +29,8 @@ A sketch of the final design
 ### GitHub Repo
 https://github.com/ellemonke/full-stack-project
 
-### Project Requirements
-- Python Flask–powered RESTful API
-- HTML/CSS, JavaScript (Include at least one JS library that we did not cover)
-- at least one database (SQL, MongoDB, SQLite, etc.)
-
 #### Timeline
-**Data Analysis** (Back-End): <br>
-**Chart Creation** (3 views): <br>
-**Draft Presentation** (Front-End): <br>
+**Data Analysis** (Back-End): TBD, All<br>
+**Chart Creation** (3 views): TBD, All<br>
+**Draft Presentation** (Front-End): TBD, Ellen<br>
 **Final Presentation: Saturday, January 25**
