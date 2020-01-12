@@ -23,10 +23,6 @@ Source: https://developers.google.com/chart/interactive/docs/gallery/geochart
 ![Correlogram](images/inspo-correlogram.png)<br>
 Source: https://www.d3-graph-gallery.com/graph/correlogram_basic.html
 
-**Circle Packing:**<br>
-![Circle Packing](images/inspo-circlepacking.png)<br>
-Source: https://observablehq.com/@d3/circle-packing
-
 **Bubble Chart:**<br>
 ![Bubble Chart](images/inspo-bubble.png)<br>
 Source: https://developers.google.com/chart/interactive/docs/gallery/bubblechart
