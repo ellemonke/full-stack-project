@@ -22,6 +22,9 @@ Source: https://www.d3-graph-gallery.com/graph/correlogram_basic.html
 ![**Bubble Chart**](images/inspo-bubble.png)<br>
 Source: https://developers.google.com/chart/interactive/docs/gallery/bubblechart
 
+**Gauges:**<br>
+![**Gauges**](images/inspo-gauges.png)<br>
+Source: http://bl.ocks.org/NPashaP/59c2c7483fb61070486835d15c807941
 
 ### Dashboard Inspiration 
 Our dashboard may consist of an interactive global map, filters, and sub-charts similar to this one.
