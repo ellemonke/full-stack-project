@@ -35,7 +35,7 @@ Source: https://www.wto.org/english/res_e/statis_e/statis_bis_e.htm
 https://github.com/ellemonke/full-stack-project
 
 ### Timeline
-**Data Analysis** (Pandas?): TBD, All<br>
-**3+ Charts** (D3, other JS libaries): TBD, All<br>
-**Draft Presentation** (HTML, Bootstrap, CSS): TBD, Ellen<br>
-**Final Presentation: Saturday, January 25**
+**Data Analysis** (SQL or Pandas?): TBD, All<br>
+**3+ Charts** (D3, Google Charts): TBD, All<br>
+**Draft Presentation** (HTML, Bootstrap, CSS, GitHub Pages): TBD, Ellen<br>
+**Final Presentation**: Saturday, January 25**
