@@ -9,6 +9,11 @@ We will be using D3 interactive visualizations to explore how these happiness fa
 ### Data Source
 https://www.kaggle.com/unsdsn/world-happiness
 
+### Dashboard Inspiration 
+Our dashboard may consist of an interactive global map, filters, and sub-charts similar to this one.
+![**Dashboard Inspo**](images/inspo-dashboard.png)<br>
+Source: https://www.wto.org/english/res_e/statis_e/statis_bis_e.htm
+
 ### Chart Inspiration
 **Geochart:**<br>
 ![**Geochart**](images/inspo-geochart.png)<br>
@@ -26,16 +31,8 @@ Source: https://developers.google.com/chart/interactive/docs/gallery/bubblechart
 ![**Gauges**](images/inspo-gauges.png)<br>
 Source: http://bl.ocks.org/NPashaP/59c2c7483fb61070486835d15c807941
 
-### Dashboard Inspiration 
-Our dashboard may consist of an interactive global map, filters, and sub-charts similar to this one.
-![**Dashboard Inspo**](images/inspo-dashboard.png)<br>
-Source: https://www.wto.org/english/res_e/statis_e/statis_bis_e.htm
-
-### GitHub Repo
-https://github.com/ellemonke/full-stack-project
-
 ### Timeline
 **Data Analysis** (SQL or Pandas?): TBD, All<br>
 **3+ Charts** (D3, Google Charts): TBD, All<br>
 **Draft Presentation** (HTML, Bootstrap, CSS, GitHub Pages): TBD, Ellen<br>
-**Final Presentation**: Saturday, January 25**
+**Final Presentation: Saturday, January 25**
