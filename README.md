@@ -16,15 +16,19 @@ Source: https://www.wto.org/english/res_e/statis_e/statis_bis_e.htm
 
 ### Chart Inspiration
 **Geochart:**<br>
-![**Geochart**](images/inspo-geochart.png)<br>
+![Geochart](images/inspo-geochart.png)<br>
 Source: https://developers.google.com/chart/interactive/docs/gallery/geochart
 
-**Correlation Diagram:**<br>
-![**Correlation Diagram**](images/inspo-correlation.png)<br>
+**Correlogram:**<br>
+![Correlogram](images/inspo-correlogram.png)<br>
 Source: https://www.d3-graph-gallery.com/graph/correlogram_basic.html
 
+**Circle Packing:**<br>
+![Circle Packing](images/inspo-circlepacking.png)<br>
+Source: https://observablehq.com/@d3/circle-packing
+
 **Bubble Chart:**<br>
-![**Bubble Chart**](images/inspo-bubble.png)<br>
+![Bubble Chart](images/inspo-bubble.png)<br>
 Source: https://developers.google.com/chart/interactive/docs/gallery/bubblechart
 
 **Gauges:**<br>
