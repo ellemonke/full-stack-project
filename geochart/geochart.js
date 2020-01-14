@@ -5,7 +5,9 @@
         'mapsApiKey': 'AIzaSyDGrZ9Qus4dlPeBjdDkDR35OincWwPutmw'
       });
       google.charts.setOnLoadCallback(drawRegionsMap);
-
+      d3.csv("/data/cleaned_data/2015.csv", function(data) {
+        console.log(data);
+      });
       function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable([
           ['Country', 'Popularity'],
