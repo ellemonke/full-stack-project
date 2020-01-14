@@ -9,6 +9,20 @@ We will be using D3 interactive visualizations to explore how these happiness fa
 ### Data Source
 https://www.kaggle.com/unsdsn/world-happiness
 
+### Tech Stack
+**Back-End/Data Analysis:** (Python/Pandas)<br>
+**Front-End/UX Design:** (HTML, Bootstrap, CSS, D3, JavaScript)<br>
+
+### Due Dates
+- **Wed, Jan 15:** Basic Bootstrap template (Ellen)<br>
+- **Sat, Jan 18:** First draft charts<br>
+    * Geochart (Bryan)<br>
+    * Bubble Chart (Rachel)<br>
+    * Correlogram: (Ellen)<br>
+- **Mon, Jan 20:** Revised Charts<br>
+- **Wed, Jan 22:** Analysis Report<br>
+- **Sat, Jan 25:** Final Presentation<br>
+
 ### Dashboard Inspiration 
 Our dashboard may consist of an interactive global map, filters, and sub-charts similar to this one.
 ![**Dashboard Inspo**](images/inspo-dashboard.png)<br>
@@ -26,13 +40,3 @@ Source: https://www.d3-graph-gallery.com/graph/correlogram_basic.html
 **Bubble Chart:**<br>
 ![Bubble Chart](images/inspo-bubble.png)<br>
 Source: https://developers.google.com/chart/interactive/docs/gallery/bubblechart
-
-**Gauges:**<br>
-![**Gauges**](images/inspo-gauges.png)<br>
-Source: http://bl.ocks.org/NPashaP/59c2c7483fb61070486835d15c807941
-
-### Timeline
-**Data Analysis** (SQL or Pandas?): TBD, All<br>
-**3+ Charts** (D3, Google Charts): TBD, All<br>
-**Draft Presentation** (HTML, Bootstrap, CSS, GitHub Pages): TBD, Ellen<br>
-**Final Presentation: Saturday, January 25**
