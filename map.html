@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>World Happiness</title>
+
+    <!-- Bootstrap components -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+</head>
+<body>
+    <div class="container-fluid">
+        <header class="row" id="nav">
+            <h1><a href="index.html">World Happiness</a></h1>
+            <nav class="navbar navbar-light" >
+                <div><a class="btn" href="index.html">Happiness Factors</a></div>
+                <div><a class="btn" href="map.html">World Map</a></div>
+                <div><a class="btn" href="summary.html">Are We Happy?</a></div>
+            </nav>
+        </header>
+
+        <div class="row" id="charts">
+            <section id="geochart" class="col-12">
+                <h4>World Map</h4>
+                <img src="images/inspo-geochart.png" style="height:600px"><br>
+                <form>
+                    <select name="year" id="year">
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                    </select>
+                    <select name="factor1" id="factor1">
+                        <option value="Economy">Economy</option>
+                        <option value="Family">Family</option>
+                        <option value="Health">Health</option>
+                        <option value="Freedom">Freedom</option>
+                        <option value="Trust">Trust</option>
+                        <option value="Generosity">Generosity</option>
+                    </select>
+                </form>
+                <p>Praesent feugiat varius
+                    ultricies. Maecenas congue iaculis mauris id aliquam. Aenean vulputate, odio non convallis molestie, purus quam
+                    lacinia eros, porttitor ultricies orci enim non lorem. Pellentesque eu dui enim. Sed varius, orci quis euismod
+                    viverra, erat diam blandit lacus, et imperdiet dui purus non justo. Donec scelerisque, nulla mattis maximus
+                    volutpat, augue sem hendrerit massa, id commodo ante lectus ut lorem. Nulla a elit sagittis, consectetur neque nec,
+                    semper odio. Praesent nulla magna, dignissim vitae tortor eget, scelerisque semper arcu.</p>
+                <p>Nunc ultricies, mi vel bibendum ullamcorper, justo tellus mollis mauris, nec egestas lacus lacus venenatis quam.
+                    Curabitur iaculis finibus metus ut egestas. Pellentesque eleifend nulla sit amet diam pulvinar, eu lobortis risus
+                    varius. Proin sit amet libero elit. Cras bibendum risus purus. Cras quis sollicitudin erat. </p>
+            </section>
+        </div>
+
+        <footer class="row">
+            <p>&copy;2020 Bryan Domogalla, Ellen Hsu, and Rachel Hunter - University of Oregon Digital Analytics Boot Camp.<br>
+            The complete <a href="https://worldhappiness.report/ed/2019/changing-world-happiness/">World Happiness Report</a> is produced by the United Nations Sustainable Development Solutions Network in partnership with the Ernesto Illy Foundation.</p>
+        </footer>
+    </div>
+</body>
+</html>
