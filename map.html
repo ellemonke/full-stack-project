@@ -9,43 +9,49 @@
     <!-- Bootstrap components -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
 
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-
 </head>
+
 <body>
     <div class="container-fluid">
-        <header class="row" id="nav">
+
+        <!-- Header -->
+        <header class="row">
             <h1><a href="index.html">World Happiness</a></h1>
-            <nav class="navbar navbar-light" >
+            <!-- Navigation -->
+            <nav class="navbar" >
                 <div><a class="btn" href="index.html">Happiness Factors</a></div>
                 <div><a class="btn" href="map.html">World Map</a></div>
                 <div><a class="btn" href="summary.html">Are We Happy?</a></div>
             </nav>
         </header>
 
-        <div class="row" id="charts">
-            <section id="geochart" class="col-12">
+        <!-- Main Content -->
+        <div class="row main-content">
+
+            <!-- Geochart -->
+            <section id="geochart" class="col col-12">
                 <h4>World Map</h4>
                 <img src="images/inspo-geochart.png" style="height:600px"><br>
                 <form>
                     <select name="year" id="year">
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
                         <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
                     </select>
                     <select name="factor1" id="factor1">
+                        <option value="Happiness">Total Happiness</option>
                         <option value="Economy">Economy</option>
                         <option value="Family">Family</option>
                         <option value="Health">Health</option>
                         <option value="Freedom">Freedom</option>
                         <option value="Trust">Trust</option>
                         <option value="Generosity">Generosity</option>
+                        <option value="Residual">Residual</option>
                     </select>
                 </form>
                 <p>Praesent feugiat varius
@@ -60,6 +66,7 @@
             </section>
         </div>
 
+        <!-- Footer -->
         <footer class="row">
             <p>&copy;2020 Bryan Domogalla, Ellen Hsu, and Rachel Hunter - University of Oregon Digital Analytics Boot Camp.<br>
             The complete <a href="https://worldhappiness.report/ed/2019/changing-world-happiness/">World Happiness Report</a> is produced by the United Nations Sustainable Development Solutions Network in partnership with the Ernesto Illy Foundation.</p>

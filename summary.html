@@ -9,26 +9,29 @@
     <!-- Bootstrap components -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
 
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-
 </head>
+
 <body>
     <div class="container-fluid">
-        <header class="row" id="nav">
+
+        <!-- Header -->
+        <header class="row">
             <h1><a href="index.html">World Happiness</a></h1>
-            <nav class="navbar navbar-light" >
+            <!-- Navigation -->
+            <nav class="navbar" >
                 <div><a class="btn" href="index.html">Happiness Factors</a></div>
                 <div><a class="btn" href="map.html">World Map</a></div>
                 <div><a class="btn" href="summary.html">Are We Happy?</a></div>
             </nav>
         </header>
 
-        <div class="row" id="summary">
-            <div class="col-sm-12 col-md-6 col-lg-6"">
+        <!-- Main Content -->
+        <div class="row main-content">
+
+            <section class="col col-sm-12 col-md-6 col-lg-6"">
                 <h4>Are We Happy?</h4>
                 <p>Vivamus vel turpis eleifend, bibendum augue quis, venenatis elit. Sed lacus nisl, hendrerit eget commodo at, porta
                     eget nisl. Nam pharetra felis id augue ullamcorper aliquet nec vitae ligula. Donec diam tellus, cursus sit amet
@@ -42,9 +45,9 @@
                     lobortis magna vel tellus maximus, ac maximus est lacinia. Cras blandit mauris lectus, a tempor justo ultrices
                     vitae. Donec fringilla ultrices nulla vehicula mollis. Nullam non urna dictum, fermentum magna sed, mattis leo.
                     Praesent orci ex, venenatis eu metus vel, aliquet tristique urna. Donec pellentesque consequat accumsan.</p>
-            </div>
+            </section>
 
-            <div class="col-sm-12 col-md-6 col-lg-6"">
+            <section class="col col-sm-12 col-md-6 col-lg-6"">
                 <h4>Future Research</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus suscipit suscipit pretium. Nam consequat, quam in
                     tempor malesuada, mauris leo faucibus nisl, nec porttitor libero sem non tellus. Aliquam erat volutpat. Maecenas a
@@ -55,10 +58,11 @@
                     risus. Donec a posuere velit. Suspendisse diam dolor, porttitor eget luctus a, condimentum in nisi. Proin accumsan
                     nulla non mi rhoncus euismod vel a nisi. Morbi ut justo elementum, tincidunt orci a, tempus nibh. Nullam nisl ante,
                     maximus quis placerat quis, venenatis vel mi. Donec quam augue, placerat nec auctor eu, commodo at mi.</p>
-            </div>
+            </section>
 
         </div>
 
+        <!-- Footer -->
         <footer class="row">
             <p>&copy;2020 Bryan Domogalla, Ellen Hsu, and Rachel Hunter - University of Oregon Digital Analytics Boot Camp.<br>
             The complete <a href="https://worldhappiness.report/ed/2019/changing-world-happiness/">World Happiness Report</a> is produced by the United Nations Sustainable Development Solutions Network in partnership with the Ernesto Illy Foundation.</p>

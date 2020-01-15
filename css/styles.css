@@ -1,43 +1,129 @@
 /* Main Template and Homepage */
 body, .container {
+    color: #262626;
+    font-size: 14px;
     height: 100%;
 }
 
-header {
-    background-color: orange;
+a, a:hover {
+    color: #1C6683;
 }
 
-h1 a, h1 a:hover {
-    color: black;
-    text-decoration: none;
+h1 {
+    color: #254466;
+    font-weight: bold;
 }
 
 h4 {
+    color: #1C6683;
     text-align: center;
+    margin-top: 12px;
+    margin-bottom: 17px;
+}
+
+header {
+    background-color: #F6BF0D;
+    height: 150px;
+}
+
+header h1 {
+    margin: 16px 52px auto 35px;
+}
+
+header h1::after {
+    content: "☺";
+    font-size: 48px;
+    margin-left: 10px;
+}
+
+h1 a, h1 a:hover {
+    color: #254466;
+    text-decoration: none;
+}
+
+.navbar .btn {
+    background-color: #F28C0F;
+    color: #fff;
+    font-size: 1.25em;
+    margin: -12px 45px auto 0;
+    padding: 7px 17px;
+}
+
+.navbar .btn:hover {
+    background-color: #F26938;
+    color: #fff;
 }
 
 .row {
-    padding: 15px;
+    padding: 30px 50px 10px 40px;
 }
 
-form {
-    margin: 5px 0 15px 0;
+.main-content {
+    padding: 50px 45px 45px 45px;
 }
 
 footer {
-    background-color: purple;
-    color: white;
+    background-color: #254466;
+    color: #fff;
     font-size: 0.8em;
 }
 
+footer a, footer a:hover {
+    color: #F28C0F;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+form select {
+    margin: 14px 10px 28px 10px;
+}
+
+form optgroup {
+    font-size: 18px;
+}
+
+form .btn {
+    background-color: #F28C0F;
+    color: #fff;
+    font-size: 1em;
+    margin-top: 11px;
+    margin-left: 8px;
+    padding: 2px 12px;
+    height: 28px;
+}
+
+form .btn:hover {
+    background-color: #F26938;
+    color: #fff;
+}
+
+form em {
+    margin-top: 14px;
+}
+
+
 /* Media Queries for Responsive CSS */
+@media (max-width:1180px) {
+    .navbar .btn {
+        /* margin: 5px; */
+    }
+}
+
 /* col-lg */
 @media (max-width:992px) {
 
+}
 
 /* col-md */
 @media (max-width:768px) {
 
+}
 
 /* col-sm */
 @media (max-width:576px) {
+
+}
