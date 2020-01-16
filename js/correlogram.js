@@ -1,6 +1,6 @@
 // Assign values
-var button = d3.select("#btn");
-var selection = d3.select("#correlogramForm");
+// var button = d3.select("#btn");
+var dropdown = d3.select("#correlogramForm");
 
 // Create the graph area
 var margin = {top: 20, right: 20, bottom: 20, left: 50},
@@ -12,21 +12,20 @@ var svg = d3.select("#correlogramChart")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
     .append("g")
-        .attr("id", "wrapper")
+        .attr("id", "chart")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var wrapper = d3.select("#wrapper");
+var chart = d3.select("#chart");
 
-
-// Function executed upon dropdown event
+// Change chart upon dropdown event
 function changeChart() {
 
     // Reset the year
     var year = d3.select("#correlogramForm").property("value");
     var url = `data/cleaned_data/correlation_${year}.csv`;
 
-    // Clear the previous correlogram
-    wrapper.html("");
+    // Clear the previous chart
+    chart.html("");
 
     // Create the (new) correlogram
     d3.csv(url, function(error, rows) {
@@ -128,8 +127,8 @@ function changeChart() {
     });
 };
 
-// Chart opon page load
+// First chart on page load
 changeChart();
 
-// Change chart upon change of dropdown
-selection.on("change", changeChart);
+// Change chart upon dropdown change
+dropdown.on("change", changeChart);
