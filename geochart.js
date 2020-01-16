@@ -6,10 +6,10 @@
         'mapsApiKey': 'AIzaSyDGrZ9Qus4dlPeBjdDkDR35OincWwPutmw'
       });
       google.charts.setOnLoadCallback(drawRegionsMap);
-      // d3.csv("/data/cleaned_data/2015.csv", function(data) {
-      //   console.log(data);
-      //   console.log(data[1].Health)
-      // });
+      d3.csv("/data/cleaned_data/2015.csv", function(data) {
+        console.log(data);
+        console.log(data[1].Health)
+      });
       function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable([
           ['Country', 'Popularity'],
@@ -28,7 +28,7 @@
         //   defaultColor: '#f5f5f5',
         // };
 
-        var chart = new google.visualization.GeoChart(document.getElementById('geochart'));
+        var chart = new google.visualization.GeoChart(document.getElementById('geochart_div'));
 
         chart.draw(data, options);
       }
