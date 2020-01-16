@@ -10,8 +10,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- D3 -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+
 </head>
 
 <body>
@@ -33,22 +37,23 @@
 
             <!-- Summary -->
             <section class="col col-12">
-                <p style="margin-bottom:35px">The <a href="https://www.kaggle.com/unsdsn/world-happiness">World Happiness Report</a> reported by the UN is a survey
-                    of global happiness that ranks 156 countries by how happy their citizens perceive themselves to be.
-                    The ranks and scores use data from the 2015-2019 Gallup World Polls. The scores are based on the extent
-                    to which six factors – economy (GDP), family or social support, health/life expectancy, freedom, trust/absence of
-                    corruption, and generosity – contribute to making life happier than a theoretical dystopian world.
-                    This overview of the report analyzes the relationships between factors and provides an interactive world map to 
-                    view how each country perceives their own happiness.
+                <p style="margin-bottom:35px">The <a href="https://www.kaggle.com/unsdsn/world-happiness">World Happiness Report</a>
+                    reported by the U.N. is a survey of global happiness that ranks 156 countries by how happy their citizens perceive
+                    themselves to be. The ranks and scores use data from the 2015-2019 Gallup World Polls. The scores are based on the
+                    extent to which six main factors – Economy (GDP), Family (Social Support), Health (Life Expectancy), Freedom, Trust
+                    (Government Corruption), Generosity, plus residual factors – contribute to overall happiness. This overview of the
+                    report analyzes each factor and provides an interactive world map to view how the people of each country perceive their
+                    own happiness.
                 </p>    
             </section>
 
             <!-- Correlogram -->
             <section id="correlogram" class="col col-sm-12 col-md-6 col-lg-6">
                 <h4>Correlogram of Happiness Factors</h4>
-                <img src="images/inspo-correlogram.png" style="width:100%;"><br>
+                <div id="correlogramChart"></div>
+                <!-- <img src="images/inspo-correlogram.png" style="width:100%;"><br> -->
                 <form>
-                    <select name="year" id="year">
+                    <select id="correlogramForm">
                         <option value="2019">2019</option>
                         <option value="2018">2018</option>
                         <option value="2017">2017</option>
@@ -111,11 +116,14 @@
 
         <!-- Footer -->
         <footer class="row">
-            <p>&copy;2020 Bryan Domogalla, Ellen Hsu, and Rachel Hunter - University of Oregon Digital Analytics Boot Camp.<br>
+            <p>&copy;2020 Bryan Domogalla, Ellen Hsu, and Rachel Hunter - University of Oregon Data Analytics Boot Camp.<br>
             The complete <a href="https://worldhappiness.report/ed/2019/changing-world-happiness/">World Happiness Report</a> is produced by the United Nations Sustainable Development Solutions Network in partnership with the Ernesto Illy Foundation.</p>
         </footer>
 
     </div>
+
+    <!-- JS for Charts -->
+    <script src="js/correlation.js"></script>
 
 </body>
 </html>
