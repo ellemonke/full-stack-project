@@ -6,16 +6,16 @@ body, .container {
 }
 
 a, a:hover {
-    color: #1C6683;
+    color: #164C8E;
 }
 
 h1 {
-    color: #254466;
+    color: #164C8E;
     font-weight: bold;
 }
 
 h4 {
-    color: #1C6683;
+    color: #164C8E;
     text-align: center;
     margin-top: 12px;
     margin-bottom: 17px;
@@ -37,7 +37,7 @@ header h1::after {
 }
 
 h1 a, h1 a:hover {
-    color: #254466;
+    color: #164C8E;
     text-decoration: none;
 }
 
@@ -63,7 +63,7 @@ h1 a, h1 a:hover {
 }
 
 footer {
-    background-color: #254466;
+    background-color: #164C8E;
     color: #fff;
     font-size: 0.8em;
 }
@@ -105,6 +105,9 @@ form em {
     margin-top: 14px;
 }
 
+#correlogram g.cor {
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 /* Media Queries for Responsive CSS */
 @media (max-width:1180px) {
