@@ -113,14 +113,14 @@ function updateToolTip(xAxis, yAxis, circlesGroup) {
         .on("mouseout", function (data, index) {
             toolTip.hide(data);
         });
-        
+
 
     return circlesGroup;
 }
 
 // Reset the year
-var year = d3.select("#bubbleyear").property("value");
-var url = `data/cleaned_data/${year}.csv`;
+// var year = d3.select("#bubbleyear").property("value");
+// var url = `data/cleaned_data/${year}.csv`;
 
 // Retrieve data from the CSV file and execute everything below
 d3.csv("../data/cleaned_data/2015.csv").then(function (data, err) {
