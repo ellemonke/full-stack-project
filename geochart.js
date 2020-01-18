@@ -4,31 +4,30 @@ var chart = d3.select("#chart");
 
 var color = [];
 function colorChange(factor) {
-  if (factor = 'Happiness') {
+  if (factor == 'Happiness') {
     return ['white',  '#F26938'];
   }
-  else if (factor = 'Family') {
+  else if (factor == 'Family') {
     return ['white',  '#F6BF0D'];
 }
-  else if (factor = 'Economy') {
-      return ['white',  '#F6BF0D'];
+  else if (factor == 'Economy') {
+      return ['white',  '#F28C0F'];
   }
-  else if (factor = 'Health') {
+  else if (factor == 'Health') {
       return ['white',  '#A9BF5A'];
   }
-  else if (factor = 'Freedom') {
+  else if (factor == 'Freedom') {
       return ['white',  '#008089'];
   }
-  else if (factor = 'Trust') {
+  else if (factor == 'Trust') {
     return ['white',  '#1C6683'];
   }
-  else if (factor = 'Generosity') {
+  else if (factor == 'Generosity') {
     return ['white',  '#164C8E'];
   }
-  else if (factor = 'Dystopia') {
+  else if (factor == 'Dystopia') {
     return ['white',  '#706464'];
   }
-  
 }
 
 function changeMap() {
@@ -47,13 +46,8 @@ function changeMap() {
         var arrayData = $.csv.toArrays(csvString, { onParseValue: $.csv.hooks.castToScalar });
         var data = new google.visualization.arrayToDataTable(arrayData);
         
-        console.log(color)
-
         color = colorChange(factor)
         
-          console.log(factor)
-          console.log(color)
-
         var options = {colorAxis: {colors: color},}
         
         var chart = new google.visualization.GeoChart(document.getElementById('geochart_div'));
@@ -64,7 +58,6 @@ function changeMap() {
   })
 }
 
-// colorChange();
 changeMap();
 
 
