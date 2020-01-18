@@ -1,4 +1,4 @@
-.aText {
+#bubble .aText {
   font-family: sans-serif;
   font-size: 16px;
   text-anchor: middle;
@@ -6,30 +6,30 @@
 
 
 
-.active:hover {
+#bubble .active:hover {
   cursor: pointer;
 }
 
 
 
-.inactive:hover {
+#bubble.inactive:hover {
   fill: #000;
   cursor: pointer;
 }
 
 
-.countryCircle {
+#bubble.countryCircle {
   fill: #89bdd3;
   stroke: #e3e3e3;
  
 }
 
-.chart {
+#bubble.chart {
   display: block;
   margin: 0;
 }
 
-.d3-tip {
+#bubble .d3-tip {
   padding: 6px;
   font-size: 12px;
   line-height: 1;
@@ -44,17 +44,15 @@
 
 /* Mobile Rules */
 @media screen and (max-width: 530px) {
-  .stateText {
-    display: none;
-  }
+  
 
-  .aText {
+  #bubble .aText {
     font-size: 14px;
   }
 }
 
 @media screen and (max-width: 400px) {
-  .aText {
+  #bubble .aText {
     font-size: 13px;
   }
 }

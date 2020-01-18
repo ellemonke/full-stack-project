@@ -123,7 +123,7 @@ function updateToolTip(xAxis, yAxis, circlesGroup) {
 // var url = `data/cleaned_data/${year}.csv`;
 
 // Retrieve data from the CSV file and execute everything below
-d3.csv("../data/cleaned_data/2015.csv").then(function (data, err) {
+d3.csv("data/cleaned_data/2015.csv").then(function (data, err) {
     if (err) throw err;
 
     console.log('loaded country data', data);
