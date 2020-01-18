@@ -2,31 +2,34 @@ var yearDropdown = d3.select("#year");
 var factorDropdown = d3.select("#factor");
 var chart = d3.select("#chart");
 
-
-
-// var color = ['white',  'blue'];
-// // if (factorDropdown = 'Total Happiness') {
-// //     color = ['white',  'blue'];
-// // }
-// if (factorDropdown = 'Family') {
-//     color = ['white',  'green'];
-// }
-// else if (factorDropdown = 'Health') {
-//     color = ['white',  'yellow'];
-// }
-// else if (factorDropdown = 'Freedom') {
-//     color = ['white',  'red'];
-// }
-// else if (factorDropdown = 'Trust') {
-//     color = ['white',  'orange'];
-// }
-// else if (factorDropdown = 'Generosity') {
-//     color = ['white',  'teal'];
-// }
-// else if (factorDropdown = 'Dystopia') {
-//   color = ['white',  'black'];
-// }
-
+var color = [];
+function colorChange(factor) {
+  if (factor = 'Happiness') {
+    return ['white',  '#F26938'];
+  }
+  else if (factor = 'Family') {
+    return ['white',  '#F6BF0D'];
+}
+  else if (factor = 'Economy') {
+      return ['white',  '#F6BF0D'];
+  }
+  else if (factor = 'Health') {
+      return ['white',  '#A9BF5A'];
+  }
+  else if (factor = 'Freedom') {
+      return ['white',  '#008089'];
+  }
+  else if (factor = 'Trust') {
+    return ['white',  '#1C6683'];
+  }
+  else if (factor = 'Generosity') {
+    return ['white',  '#164C8E'];
+  }
+  else if (factor = 'Dystopia') {
+    return ['white',  '#706464'];
+  }
+  
+}
 
 function changeMap() {
   var year = d3.select("#year").property("value");
@@ -43,21 +46,30 @@ function changeMap() {
   
         var arrayData = $.csv.toArrays(csvString, { onParseValue: $.csv.hooks.castToScalar });
         var data = new google.visualization.arrayToDataTable(arrayData);
-        var options = {colorAxis: {colors: ['white',  'blue']},}
+        
+        console.log(color)
+
+        color = colorChange(factor)
+        
+          console.log(factor)
+          console.log(color)
+
+        var options = {colorAxis: {colors: color},}
+        
         var chart = new google.visualization.GeoChart(document.getElementById('geochart_div'));
   
         chart.draw(data, options);
       })
     }
   })
-
-
 }
+
+// colorChange();
 changeMap();
 
-yearDropdown.on("change", changeMap);
-factorDropdown.on("change", changeMap);
 
+factorDropdown.on("change", changeMap, colorChange);
+yearDropdown.on("change", changeMap);
 
 
 // var options = {}

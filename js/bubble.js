@@ -113,9 +113,14 @@ function updateToolTip(xAxis, yAxis, circlesGroup) {
         .on("mouseout", function (data, index) {
             toolTip.hide(data);
         });
+        
 
     return circlesGroup;
 }
+
+// Reset the year
+var year = d3.select("#bubbleyear").property("value");
+var url = `data/cleaned_data/${year}.csv`;
 
 // Retrieve data from the CSV file and execute everything below
 d3.csv("../data/cleaned_data/2015.csv").then(function (data, err) {
@@ -161,7 +166,7 @@ d3.csv("../data/cleaned_data/2015.csv").then(function (data, err) {
 
     // Create color scale for bubbles
     var circleColor = d3.scaleOrdinal()
-        .domain(["Australia & New Zealand", "Central & Europe", "Eastern Asia", "Latin America & Caribbean", 
+        .domain(["Australia & New Zealand", "Central & Europe", "Eastern Asia", "Latin America & Caribbean",
             "Middle East & North Africa", "North America", "Southeastern Asia", "Southern Asia", "Sub-Saharan Africa", "Western Europe"])
         .range(d3.schemeSet1);
 
@@ -173,9 +178,9 @@ d3.csv("../data/cleaned_data/2015.csv").then(function (data, err) {
     circlesGroup.append("circle")
         .attr("cx", d => xLinearScale(d[xAxis]))
         .attr("cy", d => yLinearScale(d[yAxis]))
-        .attr("r", 5)
+        .attr("r", d => d.Happiness_Score * 2)
         .attr("opacity", "0.75")
-        .style("fill", function (d) { return circleColor(d.Region)})
+        .style("fill", d => circleColor(d.Region))
         .classed("countryCircle", true);
 
     // Create X & Y Axes Label Groups
