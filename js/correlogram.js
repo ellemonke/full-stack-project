@@ -28,8 +28,8 @@ function changeChart() {
     chart.html("");
 
     // Create the (new) correlogram
-    d3.csv(url, function(error, rows) {
-
+    d3.csv(url).then(function(rows) {
+        console.log(rows);
         // Going from wide to long format
         var data = [];
         rows.forEach(function(d) {
@@ -177,9 +177,9 @@ function changeChart() {
 
         cor.append("text")
             .attr("x", function(d) {
-                // return 0
-                console.log(d.x);
-                return (d.x);
+                return 0
+                // console.log(d.x);
+                // return (d.x);
             })
             .attr("y", 10)
             // .text("test");
