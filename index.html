@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,24 @@
     <title>World Happiness</title>
 
     <!-- Bootstrap components -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- D3 -->
-    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!--Added tooltip stuff-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
 
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <!--D3 Css-->
+    <link rel="stylesheet" type="text/css" href="css/d3Style.css"
 
 </head>
 
@@ -25,7 +36,7 @@
         <header class="row">
             <h1><a href="index.html">World Happiness</a></h1>
             <!-- Navigation -->
-            <nav class="navbar" >
+            <nav class="navbar">
                 <div><a class="btn" href="index.html">Happiness Factors</a></div>
                 <div><a class="btn" href="map.html">World Map</a></div>
                 <div><a class="btn" href="summary.html">Are We Happy?</a></div>
@@ -37,14 +48,20 @@
 
             <!-- Summary -->
             <section class="col col-12">
-                <p style="margin-bottom:35px">The <a href="https://www.kaggle.com/unsdsn/world-happiness">World Happiness Report</a>
-                    reported by the U.N. is a survey of global happiness that ranks 156 countries by how happy their citizens perceive
-                    themselves to be. The ranks and scores use data from the 2015-2019 Gallup World Polls. The scores are based on the
-                    extent to which six main factors – Economy (GDP), Family (Social Support), Health (Life Expectancy), Freedom, Trust
-                    (Government Corruption), Generosity, plus residual factors – contribute to overall happiness. This overview of the
-                    report analyzes each factor and provides an interactive world map to view how the people of each country perceive their
+                <p style="margin-bottom:35px">The <a href="https://www.kaggle.com/unsdsn/world-happiness">World
+                        Happiness Report</a>
+                    reported by the U.N. is a survey of global happiness that ranks 156 countries by how happy their
+                    citizens perceive
+                    themselves to be. The ranks and scores use data from the 2015-2019 Gallup World Polls. The scores
+                    are based on the
+                    extent to which six main factors – Economy (GDP), Family (Social Support), Health (Life Expectancy),
+                    Freedom, Trust
+                    (Government Corruption), Generosity, plus residual factors – contribute to overall happiness. This
+                    overview of the
+                    report analyzes each factor and provides an interactive world map to view how the people of each
+                    country perceive their
                     own happiness.
-                </p>    
+                </p>
             </section>
 
             <!-- Correlogram -->
@@ -59,71 +76,87 @@
                         <option value="2017">2017</option>
                         <option value="2016">2016</option>
                         <option value="2015">2015</option>
-                    </select>    
+                    </select>
                 </form>
-                <p>**Needs description of how to read the chart.** Donec et turpis scelerisque, dapibus ipsum nec, ultrices
-                    nisi. Donec nibh est, consequat sed euismod eu, semper ac nisi. Mauris nec venenatis eros. Praesent id mauris ante.
-                    Integer mattis consectetur nibh, at pharetra risus. Maecenas ultrices, enim molestie porttitor malesuada, felis leo
-                    accumsan eros, a efficitur massa neque id odio. Nunc pulvinar posuere ante, vel facilisis enim rutrum nec. Praesent
+                <p>**Needs description of how to read the chart.** Donec et turpis scelerisque, dapibus ipsum nec,
+                    ultrices
+                    nisi. Donec nibh est, consequat sed euismod eu, semper ac nisi. Mauris nec venenatis eros. Praesent
+                    id mauris ante.
+                    Integer mattis consectetur nibh, at pharetra risus. Maecenas ultrices, enim molestie porttitor
+                    malesuada, felis leo
+                    accumsan eros, a efficitur massa neque id odio. Nunc pulvinar posuere ante, vel facilisis enim
+                    rutrum nec. Praesent
                     ac bibendum quam, non malesuada velit. </p>
             </section>
 
             <!-- Bubble Chart -->
             <section id="bubblechart" class="col col-sm-12 col-md-6 col-lg-6">
                 <h4>Relationship of Individual Happiness Factors</h4>
-                <img src="images/inspo-bubble.png" style="height:400px; width:100%;"><br>
+                <div id="bubble"></div>
+                <!-- <img src="images/inspo-bubble.png" style="height:400px; width:100%;"><br> -->
                 <form>
                     <select name="year" id="year">
-                    <optgroup>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
-                    </optgroup>
+                        <optgroup>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                        </optgroup>
                     </select>
-                    <select name="factor1" id="factor1">
-                        <option value="Happiness">Total Happiness</option>
+                    <!--here's a change I made (added class)-->
+                    <!-- changed strings to match CSV columns-->
+                    <select name="factor1" id="factor1" class="happiness-factor">
+                        <option value="Happiness_Score">Total Happiness</option>
                         <option value="Economy">Economy</option>
                         <option value="Family">Family</option>
                         <option value="Health">Health</option>
                         <option value="Freedom">Freedom</option>
                         <option value="Trust">Trust</option>
                         <option value="Generosity">Generosity</option>
-                        <option value="Residual">Residual</option>
+                        <option value="Dystopia_Residual">Residual</option>
                     </select>
                     <em>V.</em>
-                    <select name="factor2" id="factor2">
-                        <option value="Happiness">Total Happiness</option>
+                    <select name="factor2" id="factor2" class="happiness-factor">
+                        <option value="Happiness_Score">Total Happiness</option>
                         <option value="Economy">Economy</option>
                         <option value="Family">Family</option>
                         <option value="Health">Health</option>
                         <option value="Freedom">Freedom</option>
                         <option value="Trust">Trust</option>
                         <option value="Generosity">Generosity</option>
-                        <option value="Residual">Residual</option>
+                        <option value="Dystopia_Residual">Residual</option>
                     </select>
                     <button class="btn">View</button>
                 </form>
                 <p>**Bubbles colored by region and popups with country names.** Praesent feugiat varius
-                    ultricies. Maecenas congue iaculis mauris id aliquam. Aenean vulputate, odio non convallis molestie, purus quam
-                    lacinia eros, porttitor ultricies orci enim non lorem. Pellentesque eu dui enim. Sed varius, orci quis euismod
-                    viverra, erat diam blandit lacus, et imperdiet dui purus non justo. Donec scelerisque, nulla mattis maximus
-                    volutpat, augue sem hendrerit massa, id commodo ante lectus ut lorem. Nulla a elit sagittis, consectetur neque nec,
+                    ultricies. Maecenas congue iaculis mauris id aliquam. Aenean vulputate, odio non convallis molestie,
+                    purus quam
+                    lacinia eros, porttitor ultricies orci enim non lorem. Pellentesque eu dui enim. Sed varius, orci
+                    quis euismod
+                    viverra, erat diam blandit lacus, et imperdiet dui purus non justo. Donec scelerisque, nulla mattis
+                    maximus
+                    volutpat, augue sem hendrerit massa, id commodo ante lectus ut lorem. Nulla a elit sagittis,
+                    consectetur neque nec,
                     semper odio. Praesent nulla magna, dignissim vitae tortor eget, scelerisque semper arcu.</p>
             </section>
         </div>
 
         <!-- Footer -->
         <footer class="row">
-            <p>&copy;2020 Bryan Domogalla, Ellen Hsu, and Rachel Hunter - University of Oregon Data Analytics Boot Camp.<br>
-            The complete <a href="https://worldhappiness.report/ed/2019/changing-world-happiness/">World Happiness Report</a> is produced by the United Nations Sustainable Development Solutions Network in partnership with the Ernesto Illy Foundation.</p>
+            <p>&copy;2020 Bryan Domogalla, Ellen Hsu, and Rachel Hunter - University of Oregon Data Analytics Boot
+                Camp.<br>
+                The complete <a href="https://worldhappiness.report/ed/2019/changing-world-happiness/">World Happiness
+                    Report</a> is produced by the United Nations Sustainable Development Solutions Network in
+                partnership with the Ernesto Illy Foundation.</p>
         </footer>
 
     </div>
 
     <!-- JS for Charts -->
     <script src="js/correlogram.js"></script>
+    <script src="bubblechart/bubble.js"></script>
 
 </body>
+
 </html>
