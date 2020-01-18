@@ -105,9 +105,19 @@ form em {
     margin-top: 14px;
 }
 
+select {
+    border-color: #F26938;
+    color: #164C8E;
+    font-size: 1.2em;
+}
+
 #correlogram g.cor {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+/* #correlogram g.cor text:hover {
+    display: none;
+} */
 
 /* Media Queries for Responsive CSS */
 @media (max-width:1180px) {
