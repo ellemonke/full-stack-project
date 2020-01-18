@@ -1,17 +1,16 @@
 // Assign values
-// var button = d3.select("#btn");
 var dropdown = d3.select("#correlogramForm");
 
 // Create the graph area
-var margin = {top: 40, right: 20, bottom: 20, left: 50},
-    width = 480 - margin.left - margin.right,
-    height = 450 - margin.top - margin.bottom
+var margin = {top: 50, right: 50, bottom: 40, left: 50},
+    width = 580 - margin.left - margin.right,
+    height = 510 - margin.top - margin.bottom
 
 var svg = d3.select("#correlogramChart")
     .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
-    .append("g")
+        .append("g")
         .attr("id", "chart")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -29,7 +28,6 @@ function changeChart() {
 
     // Create the (new) correlogram
     d3.csv(url).then(function(rows) {
-        console.log(rows);
         // Going from wide to long format
         var data = [];
         rows.forEach(function(d) {
@@ -48,7 +46,6 @@ function changeChart() {
 
         // List of all variables and number of them
         var domain = d3.set(data.map(function(d) { return d.x })).values();
-        var num = Math.sqrt(data.length);
 
         // Create a color scale
         var color = d3.scaleLinear()
@@ -70,7 +67,7 @@ function changeChart() {
         // Y scale
         var y = d3.scalePoint()
             .range([0, height])
-            .domain(domain);
+            .domain(domain);     
 
         // Create one 'g' element for each cell of the correlogram
         var cor = svg.selectAll(".cor")
@@ -82,84 +79,39 @@ function changeChart() {
                 return "translate(" + x(d.x) + "," + y(d.y) + ")";
             });
 
-        // Upper right part: add circles
+        // Add circles
         cor
-        // .filter(function(d){
-        //         var ypos = domain.indexOf(d.y);
-        //         var xpos = domain.indexOf(d.x);
-        //         return xpos > ypos;
-        //     })
+            // .append(function(d) {
+            //     if (d.x === d.y) {
+            //         return d.x;
+            //     } else {
+            //         return "circle";
+            //     }
+            // )
             .append("circle")
             .attr("r", function(d){ return size(Math.abs(d.value*3)) })
             .style("fill", function(d){
-                if (d.x === d.y) {
-                    return "#F2A011";
+                if (d.value == 1) {
+                    return "#F2A011"
+                } else if (d.value <= 0.05) {
+                    return "#254466"
                 } else {
-                    return color(d.value);
+                    return "#F6Bf0D"
                 }
+                // } else {
+                //     return color(d.value);
+                // }
             })
-            .style("opacity", 1.0);
+            .style("opacity", 1.0);       
 
-        // Lower right part: add circles
-        // cor
-        // .filter(function(d){
-        //     var ypos = domain.indexOf(d.y);
-        //     var xpos = domain.indexOf(d.x);
-        //     return xpos <= ypos;
-        // })
-        // .append("circle")
-        // .attr("r", function(d){ return size(Math.abs(d.value*3)) })
-        // .style("fill", function(d){
-        //     if (d.x === d.y) {
-        //         return "#F2A011";
-        //     } else {
-        //         return color(d.value);
-        //     }
-        // })
-        // .style("opacity", 1.0);            
-
-        // Upper right part + Diagonal: Add text
-        // cor
-        // .filter(function(d){
-        //     var ypos = domain.indexOf(d.y);
-        //     var xpos = domain.indexOf(d.x);
-        //     return xpos > ypos;
-        // })
-        // .append("text")
-        // .attr("x", -15)
-        // .attr("y", -15)
-        // .text(function(d) {
-        //     if (d.x === d.y) {
-        //         // return d.x;
-        //     } else {
-        //         return d.value.toFixed(2);
-        //     }
-        // })
-        // // .attr("class", "text")
-        // .style("font-size", 14)
-        // .style("text-align", "left")
-        // .style("fill", function(d){
-        //     // if (d.x === d.y) {
-        //         // return "#254466";
-        //     // } else {
-        //         return color(d.value);
-        //     // }
-        // });
-
-
-        // Lower left part + Diagonal: Add text
+        // Add text
         cor
-        // .filter(function(d){
-        //     var ypos = domain.indexOf(d.y);
-        //     var xpos = domain.indexOf(d.x);
-        //     return xpos <= ypos;
-        // })
         .append("text")
         .attr("x", -15)
         .attr("y", -15)
         .text(function(d) {
             if (d.x === d.y) {
-                // return d.x;
+                return d.x;
             } else {
                 return d.value.toFixed(2);
             }
@@ -168,29 +120,13 @@ function changeChart() {
         .style("font-size", 14)
         .style("text-align", "left")
         .style("fill", function(d){
-            // if (d.x === d.y) {
-                // return "#254466";
-            // } else {
+            if (d.x === d.y) {
+                return "#254466";
+            } else {
                 return color(d.value);
-            // }
+            }
         });        
 
-        cor.append("text")
-            .attr("x", function(d) {
-                return 0
-                // console.log(d.x);
-                // return (d.x);
-            })
-            .attr("y", 10)
-            // .text("test");
-            .text(function(d) {
-                if (d.x === d.y) {
-                    return d.x;
-                    // domain.indexOf(d.x)
-                } else {
-                    // return d.value.toFixed(2);
-                }
-            });
     });
 };
 
