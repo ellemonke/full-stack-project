@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>World Happiness</title>
+
+    <!-- Bootstrap components -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- D3 -->
+    <script src="https://d3js.org/d3.v5.js"></script>
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <!-- Header -->
+        <header class="row">
+            <h1><a href="index.html">World Happiness</a></h1>
+            <!-- Navigation -->
+            <nav class="navbar">
+                <div><a class="btn" href="index.html">Happiness Factors</a></div>
+                <div><a class="btn" href="map.html">World Map</a></div>
+                <div><a class="btn" href="summary.html">Are We Happy?</a></div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <div class="row main-content">
+
+            <!-- Correlogram -->
+            <div id="correlogram" class="col col-sm-12 col-md-7 col-lg-7">
+                <h4>Correlations of Happiness Factors</h4>
+                <div id="correlogramChart"></div>
+                <form>
+                    <select id="correlogramForm">
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                    </select>
+                </form>
+            </div>
+            <div class="col col-sm-12 col-md-5 col-lg-5" style="margin-top: 70px;">
+                <p>Each circle represents the correlation between two factors on the grid. The higher the coefficient,
+                    the more correlated the two factors are, with 1.0 being perfectly correlated. If the coefficient is less than 0.05
+                    or greater than -0.05, the two factors are not likely correlated. Less than -0.05 may even indicate a
+                    negative correlation.</p>
+                    <ol>
+                        <li><strong>Happiness</strong> is based on a poll question to rate one's own overall happiness on a scale from 1 to 10.</li>
+                        <li><strong>Economy</strong> is based on adjusted GDP per capita in terms of PPP (Purchasing Power Parity).</li>
+                        <li><strong>Family/Social Support</strong> is based on the poll question “If you were in trouble, do you have relatives or friends you can count on to help you whenever you need them, or not?”</li>
+                        <li><strong>Health</strong> is based on real data of life expectancy.</li>
+                        <li><strong>Freedom</strong> is based on the poll question “Are you satisfied or dissatisfied with your freedom to choose what you do with your life?”</li>
+                        <li><strong>Trust</strong> is based on the poll question “Is corruption widespread throughout the government (or businesses)?”</li>
+                        <li><strong>Generosity</strong> is based on the regressing the national average of answers to the question “Have you donated money to a charity in the past month?” against GDP per capita.</li>
+                        <li><strong>Dystopia Residual</strong> is the residual of other factors of happiness not already listed above (2015-2017).</li>
+                    </ol>
+            </div>
+
+            <p>Of all factors contributing to overall happiness - Economy, Gamily, and Health seem to correlate the most with overall
+                happiness. Over the years, these factors become even a littlre more correlated with overall happiness. Prior to 2018, 
+                Trust (in the government) and Generosity were significantly correlated with happiness along with most of the other factors. 
+                However between 2017 and 2018, trust in the government became less correlated with happiness. Between 2016 and 2018, generosity
+                became increasingly correlated with happiness, but then suddenly in 2019 it became uncorrelated and even negatively correlated
+                to the economy.
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="row">
+            <p>&copy;2020 Bryan Domogalla, Ellen Hsu, and Rachel Hunter - University of Oregon Data Analytics Boot
+                Camp.<br>
+                The complete <a href="https://worldhappiness.report/ed/2019/changing-world-happiness/">World Happiness
+                    Report</a> is produced by the United Nations Sustainable Development Solutions Network in
+                partnership with the Ernesto Illy Foundation.</p>
+        </footer>
+
+    </div>
+
+    <!-- JS for Charts -->
+
+    <script src="js/correlogram.js"></script>
+
+</body>
+
+</html>
