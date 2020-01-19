@@ -1,12 +1,12 @@
 // Define dimensions for svg container 
-var svgWidth = 500;
-var svgHeight = 368;
+var svgWidth = 975;
+var svgHeight = 400;
 
 var margin = {
     top: 40,
     bottom: 100,
-    left: 100,
-    right: 20
+    left: 50,
+    right: 230
 };
 
 // Define dimensions for chart
@@ -24,6 +24,54 @@ var svg = d3
 var chartGroup = svg
     .append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+// Create color scale for bubbles
+var circleColor = d3.scaleOrdinal()
+    .domain(["Australia & New Zealand", "Central & Europe", "Eastern Asia", "Latin America & Caribbean",
+        "Middle East & North Africa", "North America", "Southeastern Asia", "Southern Asia", "Sub-Saharan Africa", "Western Europe"])
+    .range(d3.schemeSet1);
+
+// What to do when one group is hovered
+var highlight = function (d) {
+    // reduce opacity of all groups
+    d3.selectAll("circle").style("opacity", .05)
+    // expect the one that is hovered
+    d3.selectAll("." + d).style("opacity", 1)
+}
+
+// And when it is not hovered anymore
+var noHighlight = function (d) {
+    d3.selectAll("circle").style("opacity", 1)
+}
+
+// Add circles to legend for each name.
+var size = 20
+var allgroups = ["Australia & New Zealand", "Central & Europe", "Eastern Asia", "Latin America & Caribbean",
+    "Middle East & North Africa", "North America", "Southeastern Asia", "Southern Asia", "Sub-Saharan Africa", "Western Europe"]
+svg.selectAll("myrect")
+    .data(allgroups)
+    .enter()
+    .append("circle")
+    .attr("cx", 775)
+    .attr("cy", function (d, i) { return 10 + i * (size + 5) }) // 100 is where the first dot appears. 25 is the distance between dots
+    .attr("r", 7)
+    .style("fill", d => circleColor(d))
+    .on("mouseover", highlight)
+    .on("mouseleave", noHighlight)
+
+// Add labels beside legend dots
+svg.selectAll("mylabels")
+    .data(allgroups)
+    .enter()
+    .append("text")
+    .attr("x", 775 + size * .8)
+    .attr("y", function (d, i) { return i * (size + 5) + (size / 2) }) // 100 is where the first dot appears. 25 is the distance between dots
+    .style("fill", d => circleColor(d))
+    .text(d => d)
+    .attr("text-anchor", "left")
+    .style("alignment-baseline", "middle")
+    .on("mouseover", highlight)
+    .on("mouseleave", noHighlight)
 
 // Function for updating X axis scale 
 function xScale(data, xAxis) {
@@ -78,7 +126,6 @@ function renderCircles(circlesGroup, newXScale, xAxis, newYScale, yAxis) {
     circlesGroup.selectAll("circle").transition()
         .duration(1000)
         .attr("cx", d => {
-            //console.log("cx", d, xAxis)
             return newXScale(d[xAxis])
         })
         .attr("cy", d => newYScale(d[yAxis]));
@@ -118,8 +165,14 @@ function updateToolTip(xAxis, yAxis, circlesGroup) {
     return circlesGroup;
 }
 
-// Reset the year
-// var year = d3.select("#bubbleyear").property("value");
+
+
+
+
+
+
+//Reset the year
+// var year = d3.select("#year").property("value");
 // var url = `data/cleaned_data/${year}.csv`;
 
 // Retrieve data from the CSV file and execute everything below
@@ -164,12 +217,6 @@ d3.csv("data/cleaned_data/2015.csv").then(function (data, err) {
         .attr("transform", `translate(0, 0)`)
         .call(leftAxis);
 
-    // Create color scale for bubbles
-    var circleColor = d3.scaleOrdinal()
-        .domain(["Australia & New Zealand", "Central & Europe", "Eastern Asia", "Latin America & Caribbean",
-            "Middle East & North Africa", "North America", "Southeastern Asia", "Southern Asia", "Sub-Saharan Africa", "Western Europe"])
-        .range(d3.schemeSet1);
-
     var circlesGroup = chartGroup.selectAll("circle")
         .data(data)
         .enter()
@@ -179,7 +226,7 @@ d3.csv("data/cleaned_data/2015.csv").then(function (data, err) {
         .attr("cx", d => xLinearScale(d[xAxis]))
         .attr("cy", d => yLinearScale(d[yAxis]))
         .attr("r", d => d.Happiness_Score * 2)
-        .attr("opacity", "0.75")
+        .attr("opacity", "1")
         .style("fill", d => circleColor(d.Region))
         .classed("countryCircle", true);
 
@@ -193,6 +240,7 @@ d3.csv("data/cleaned_data/2015.csv").then(function (data, err) {
     var xAxisLabel = xLabelsGroup.append("text")
         .attr("x", 0)
         .attr("y", 25)
+        .attr("id", "xAxisLabel")
         .text("Default X Text");
 
     var yAxisLabel = yLabelsGroup.append("text")
@@ -205,10 +253,11 @@ d3.csv("data/cleaned_data/2015.csv").then(function (data, err) {
     var circlesGroup = updateToolTip(xAxis, yAxis, circlesGroup);
 
     // Axis labels event listener
-    d3.selectAll(".happiness-factor")
+    d3.selectAll(".bubbleyear, .happiness-factor")
         .on("change", function () {
 
             // Get value of selection
+            //var yearValue = d3.select("#year").node().value
             var xValue = d3.select("#factor1").node().value;
             var yValue = d3.select("#factor2").node().value;
 
@@ -223,7 +272,7 @@ d3.csv("data/cleaned_data/2015.csv").then(function (data, err) {
             renderYAxes(yLinearScale, yAxis);
 
             // Update label
-            xAxisLabel.text(xValue);
+            d3.select("#xAxisLabel").text(xValue);
             yAxisLabel.text(yValue);
 
             // Updates circles with new values
@@ -237,3 +286,5 @@ d3.csv("data/cleaned_data/2015.csv").then(function (data, err) {
 }).catch(function (error) {
     console.log(error);
 });
+
+
