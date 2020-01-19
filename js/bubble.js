@@ -1,12 +1,12 @@
 // Define dimensions for svg container 
-var svgWidth = 975;
+var svgWidth = 1000;
 var svgHeight = 400;
 
 var margin = {
     top: 40,
     bottom: 100,
     left: 50,
-    right: 230
+    right: 300
 };
 
 // Define dimensions for chart
@@ -25,43 +25,61 @@ var chartGroup = svg
     .append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-// Create color scale for bubbles
+    // Create color scale for bubbles    
+var allRegions = ["Australia and New Zealand", "Central and Eastern Europe", "Eastern Asia", "Latin America and Caribbean",
+"Middle East and Northern Africa", "North America", "Southeastern Asia", "Southern Asia", "Sub-Saharan Africa", "Western Europe"]
 var circleColor = d3.scaleOrdinal()
-    .domain(["Australia & New Zealand", "Central & Europe", "Eastern Asia", "Latin America & Caribbean",
-        "Middle East & North Africa", "North America", "Southeastern Asia", "Southern Asia", "Sub-Saharan Africa", "Western Europe"])
-    .range(d3.schemeSet1);
+    .domain(allRegions)
+    .range(d3.schemeCategory10);
 
-// What to do when one group is hovered
+// What to do when one group is hovered over
 var highlight = function (d) {
+    console.log(d);
     // reduce opacity of all groups
-    d3.selectAll("circle").style("opacity", .05)
-    // expect the one that is hovered
-    d3.selectAll("." + d).style("opacity", 1)
+    d3.selectAll(".countryCircle").style("opacity", .05);
+    // except the one that is hovered
+    var classString = regionToClass(d);
+    d3.selectAll("." + classString).style("opacity", 1);
+    console.log ("." + classString);
 }
-
 // And when it is not hovered anymore
 var noHighlight = function (d) {
-    d3.selectAll("circle").style("opacity", 1)
+    d3.selectAll(".countryCircle").style("opacity", 1)
 }
-
+function regionToClass(region) {
+    switch(region) {
+        case "Australia and New Zealand": return "bubble-aus";
+        case "Central and Eastern Europe": return "bubble-cent";
+        case "Eastern Asia" : return "bubble-east";
+        case "Latin America and Caribbean" : return "bubble-lat";
+        case "Middle East and Northern Africa" : return "bubble-mid";
+        case "North America": return "bubble-north";
+        case "Southeastern Asia": return "bubble-sea";
+        case "Southern Asia": return "bubbles-sa";
+        case "Sub-Saharan Africa": return "bubble-sub";
+        case "Western Europe": return "bubble-west";
+        default: 
+            console.log("region not found", region);
+    }
+}
 // Add circles to legend for each name.
 var size = 20
-var allgroups = ["Australia & New Zealand", "Central & Europe", "Eastern Asia", "Latin America & Caribbean",
-    "Middle East & North Africa", "North America", "Southeastern Asia", "Southern Asia", "Sub-Saharan Africa", "Western Europe"]
+
 svg.selectAll("myrect")
-    .data(allgroups)
+    .data(allRegions)
     .enter()
     .append("circle")
     .attr("cx", 775)
     .attr("cy", function (d, i) { return 10 + i * (size + 5) }) // 100 is where the first dot appears. 25 is the distance between dots
     .attr("r", 7)
+    .attr("class", (d) => regionToClass(d))
     .style("fill", d => circleColor(d))
     .on("mouseover", highlight)
-    .on("mouseleave", noHighlight)
+    .on("mouseout", noHighlight)
 
 // Add labels beside legend dots
 svg.selectAll("mylabels")
-    .data(allgroups)
+    .data(allRegions)
     .enter()
     .append("text")
     .attr("x", 775 + size * .8)
@@ -71,7 +89,7 @@ svg.selectAll("mylabels")
     .attr("text-anchor", "left")
     .style("alignment-baseline", "middle")
     .on("mouseover", highlight)
-    .on("mouseleave", noHighlight)
+    .on("mouseout", noHighlight)
 
 // Function for updating X axis scale 
 function xScale(data, xAxis) {
@@ -120,8 +138,10 @@ function renderYAxes(newYScale, newYAxis) {
 }
 
 // Function for updating circles group during transition
-function renderCircles(circlesGroup, newXScale, xAxis, newYScale, yAxis) {
-    console.log("render circles");
+function renderCircles(newXScale, xAxis, newYScale, yAxis) {
+    console.log("render circles", arguments);
+
+    var circlesGroup = chartGroup.selectAll(".countryCircle")
 
     circlesGroup.selectAll("circle").transition()
         .duration(1000)
@@ -132,24 +152,24 @@ function renderCircles(circlesGroup, newXScale, xAxis, newYScale, yAxis) {
 
     circlesGroup.selectAll("text").transition()
         .duration(1000)
-        .attr("x", d => newXScale(d[xAxis]))
+        .attr("x", function (d) {
+            console.log(d)
+            return newXScale(d[xAxis])
+        })
         .attr("y", d => newYScale(d[yAxis]));
-
-    return circlesGroup;
 }
 
 // Function for updating circles group with new tooltip
-function updateToolTip(xAxis, yAxis, circlesGroup) {
+function updateToolTip(xAxis, yAxis) {
 
+    var circlesGroup = chartGroup.selectAll(".countryCircle")
     var xLabel = xAxis;
-
     var yLabel = yAxis
-
     var toolTip = d3.tip()
         .attr("class", "d3-tip")
         .offset([80, -60])
         .html(function (d) {
-            return (`${d.Country}<br>${xLabel}: ${d[xAxis]}<br>${yLabel}: ${d[yAxis]}`);
+            return (`${d.Country}<br>${xLabel}: ${d[xAxis].toFixed(2)}<br>${yLabel}: ${d[yAxis].toFixed(2)}`);
         });
 
     circlesGroup.call(toolTip);
@@ -161,130 +181,141 @@ function updateToolTip(xAxis, yAxis, circlesGroup) {
             toolTip.hide(data);
         });
 
-
-    return circlesGroup;
+    return chartGroup;
 }
 
+// Function to initialize chart
+function initChart(data) {
+    // Remove previous
+    chartGroup.selectAll(".x-axis, .y-axis, .countryCircle, .x-label, .y-label")
+        .remove();
 
+    // Create X & Y scale functions
+    var xLinearScale = d3.scaleLinear()
+        .domain([0, 100])
+        .range([0, width]);
+    var yLinearScale = d3.scaleLinear()
+        .domain([0, 100])
+        .range([0, height]);
 
-
-
-
-
-//Reset the year
-// var year = d3.select("#year").property("value");
-// var url = `data/cleaned_data/${year}.csv`;
-
-// Retrieve data from the CSV file and execute everything below
-d3.csv("data/cleaned_data/2015.csv").then(function (data, err) {
-    if (err) throw err;
-
-    console.log('loaded country data', data);
-
-    // Coerce string to integers 
-    data.forEach(function (data) {
-        data.Happiness_Rank = +data.Happiness_Rank;
-        data.Happiness_Score = +data.Happiness_Score;
-        data.Economy = +data.Economy;
-        data.Family = +data.Family;
-        data.Health = +data.Health;
-        data.Freedom = +data.Freedom;
-        data.Trust = +data.Trust;
-        data.Generosity = +data.Generosity;
-        data.Dystopia_Residual = +data.Dystopia_Residual;
-    })
-
-    // xLinearScale function 
-    var xLinearScale = xScale(data, xAxis);
-
-    // yLinearScale function
-    var yLinearScale = yScale(data, yAxis);
-
-    // Create initial axis functions
+    // Create left & bottom axis
     var bottomAxis = d3.axisBottom(xLinearScale);
-    console.log(bottomAxis);
     var leftAxis = d3.axisLeft(yLinearScale);
 
-    // Append x axis
+    // Append axes & circles
     var xAxis = chartGroup.append("g")
         .classed("x-axis", true)
+        .attr("id", "xAxis")
         .attr("transform", `translate(0, ${height})`)
         .call(bottomAxis);
-
-    // Append y axis
     var yAxis = chartGroup.append("g")
         .classed("y-axis", true)
+        .attr("id", "yAxis")
         .attr("transform", `translate(0, 0)`)
         .call(leftAxis);
-
     var circlesGroup = chartGroup.selectAll("circle")
         .data(data)
         .enter()
-        .append("g");
-
+        .append("g")
+        // Put class on group itself
+        .attr("class", (d) => regionToClass(d.Region))
+        .classed("countryCircle", true);
+       
     circlesGroup.append("circle")
         .attr("cx", d => xLinearScale(d[xAxis]))
         .attr("cy", d => yLinearScale(d[yAxis]))
         .attr("r", d => d.Happiness_Score * 2)
-        .attr("opacity", "1")
-        .style("fill", d => circleColor(d.Region))
-        .classed("countryCircle", true);
+        .style("fill", d => circleColor(d.Region));
 
     // Create X & Y Axes Label Groups
     var xLabelsGroup = chartGroup.append("g")
-        .attr("transform", `translate(${width / 2}, ${height + 20})`);
-
+        .attr("transform", `translate(${width / 2}, ${height + 20})`)
+        .classed("x-label", true);
     var yLabelsGroup = chartGroup.append("g")
-        .attr("transform", `translate(${-margin.left}, ${height / 2}) rotate(-90)`);
+        .attr("transform", `translate(${-margin.left}, ${height / 2}) rotate(-90)`)
+        .classed("y-label", true);
 
-    var xAxisLabel = xLabelsGroup.append("text")
+    // Append label text to chart
+    xLabelsGroup.append("text")
         .attr("x", 0)
         .attr("y", 25)
-        .attr("id", "xAxisLabel")
-        .text("Default X Text");
-
-    var yAxisLabel = yLabelsGroup.append("text")
+        .attr("id", "xAxisLabel");
+    yLabelsGroup.append("text")
         .attr("y", 5)
         .attr("x", 0)
-        .attr("dy", "1em")
-        .text("Default Y Text");
+        .attr("id", "yAxisLabel")
+        .attr("dy", "1em");
 
     // Update ToolTip function above csv import
-    var circlesGroup = updateToolTip(xAxis, yAxis, circlesGroup);
+    updateToolTip(xAxis, yAxis);
+}
+// Function to update chart
+function updateChart() {
+    var data = chartGroup.selectAll("circle")
+        .data();
 
-    // Axis labels event listener
-    d3.selectAll(".bubbleyear, .happiness-factor")
-        .on("change", function () {
+    // Get value of selection
+    var xValue = "Happiness_Score"
+    var yValue = d3.select("#factor2").node().value;
+    console.log("factor changed: Happiness v.", yValue);
 
-            // Get value of selection
-            //var yearValue = d3.select("#year").node().value
-            var xValue = d3.select("#factor1").node().value;
-            var yValue = d3.select("#factor2").node().value;
+    // Update scales for new factors
+    var xLinearScale = xScale(data, xValue);
+    var yLinearScale = yScale(data, yValue);
 
-            console.log("factor changed", xValue, "v.", yValue);
+    // Select axes from init function, transition axes based on selected factor
+    var xAxis = d3.select("#xAxis")
+    var yAxis = d3.select("#yAxis")
 
-            // Update scales for new factors
-            xLinearScale = xScale(data, xValue);
-            yLinearScale = yScale(data, yValue);
+    renderXAxes(xLinearScale, xAxis);
+    renderYAxes(yLinearScale, yAxis);
 
-            // Update axes with transition
-            renderXAxes(xLinearScale, xAxis);
-            renderYAxes(yLinearScale, yAxis);
+    // Update label
+    d3.select("#xAxisLabel").text(xValue);
+    d3.select("#yAxisLabel").text(yValue);
 
-            // Update label
-            d3.select("#xAxisLabel").text(xValue);
-            yAxisLabel.text(yValue);
+    // Select circles/chartGroup from init function, update based on selected factor
+    renderCircles(xLinearScale, xValue, yLinearScale, yValue);
 
-            // Updates circles with new values
-            circlesGroup = renderCircles(circlesGroup, xLinearScale, xValue, yLinearScale, yValue);
-
-            // Updates tooltips with new data
-            circlesGroup = updateToolTip(xValue, yValue, circlesGroup);
-
-        });
-
-}).catch(function (error) {
-    console.log(error);
+    // Updates tooltips with new data
+    updateToolTip(xValue, yValue);
+}
+// When HTML loads, run the rest 
+document.addEventListener("DOMContentLoaded", function (e) {
+    loadYear()
 });
+// Function to update year
+function loadYear() {
+    var yearValue = d3.select("#year").node().value
 
+    // Retrieve data from the CSV file and execute everything below
+    var url = `data/cleaned_data/${yearValue}.csv`
 
+    d3.csv(url).then(function (data, err) {
+        if (err) throw err;
+
+        // Coerce string to integers 
+        data.forEach(function (data) {
+            data.Happiness_Rank = +data.Happiness_Rank;
+            data.Happiness_Score = +data.Happiness_Score;
+            data.Economy = +data.Economy;
+            data.Family = +data.Family;
+            data.Health = +data.Health;
+            data.Freedom = +data.Freedom;
+            data.Trust = +data.Trust;
+            data.Generosity = +data.Generosity;
+            data.Dystopia_Residual = +data.Dystopia_Residual;
+        })
+        initChart(data);
+        updateChart();
+
+    }).catch(function (error) {
+        console.log(error);
+    });
+}
+
+// Axis labels event listener
+d3.selectAll(".happiness-factor")
+    .on("change", updateChart)
+d3.selectAll(".bubbleyear")
+    .on("change", loadYear)

@@ -16,7 +16,7 @@
 
     <!-- D3 -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <!--Added tooltip stuff-->
+    <!--Added tooltip components-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
@@ -24,8 +24,8 @@
 
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <!--D3 Css-->
-    <link rel="stylesheet" type="text/css" href="css/d3Style.css"
+    <!--D3 CSS-->
+    <link rel="stylesheet" type="text/css" href="css/d3Style.css">
 
 </head>
 
@@ -67,8 +67,7 @@
             <!-- Bubble Chart -->
             <section id="bubblechart" class="col col-12">
                 <h4>Relationship of Individual Happiness Factors</h4>
-                <div style ="text-align:center" id="bubble"></div>
-                <!-- <img src="images/inspo-bubble.png" style="height:400px; width:100%;"><br> -->
+                <div style="text-align:center" id="bubble"></div>
                 <form>
                     <select name="year" id="year" class="bubbleyear">
                         <optgroup>
@@ -79,21 +78,8 @@
                             <option value="2015">2015</option>
                         </optgroup>
                     </select>
-                    <!--here's a change I made (added class)-->
-                    <!-- changed strings to match CSV columns-->
-                    <select name="factor1" id="factor1" class="happiness-factor">
-                        <option value="Happiness_Score">Total Happiness</option>
-                        <option value="Economy">Economy</option>
-                        <option value="Family">Family</option>
-                        <option value="Health">Health</option>
-                        <option value="Freedom">Freedom</option>
-                        <option value="Trust">Trust</option>
-                        <option value="Generosity">Generosity</option>
-                        <option value="Dystopia_Residual">Residual</option>
-                    </select>
-                    <em>V.</em>
+                    <em>Happiness Score V.</em>
                     <select name="factor2" id="factor2" class="happiness-factor">
-                        <option value="Happiness_Score">Total Happiness</option>
                         <option value="Economy">Economy</option>
                         <option value="Family">Family</option>
                         <option value="Health">Health</option>
@@ -104,7 +90,8 @@
                     </select>
                     <button class="btn">View</button>
                 </form>
-                <p>**Bubbles colored by region and popups with country names.** Praesent feugiat varius
+                <p> The scale of the bubble corresponds to the country's overall happiness score. Hover over a region
+                    group in the legend to see its position on the chart. Praesent feugiat varius
                     ultricies. Maecenas congue iaculis mauris id aliquam. Aenean vulputate, odio non convallis molestie,
                     purus quam
                     lacinia eros, porttitor ultricies orci enim non lorem. Pellentesque eu dui enim. Sed varius, orci
@@ -129,7 +116,7 @@
     </div>
 
     <!-- JS for Charts -->
-   
+
     <script src="js/bubble.js"></script>
 
 </body>
