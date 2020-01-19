@@ -115,7 +115,7 @@ select {
     font-size: 1.2em;
 }
 
-#bubble, #correlogramChart, #geochart_div, #geochart {
+#bubble, #correlogramChart, #geochart_div {
     display: flex;
     justify-content: center;
 }
