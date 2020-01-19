@@ -2,9 +2,9 @@
 var dropdown = d3.select("#correlogramForm");
 
 // Create the graph area
-var margin = {top: 50, right: 50, bottom: 40, left: 50},
-    width = 580 - margin.left - margin.right,
-    height = 510 - margin.top - margin.bottom
+var margin = {top: 50, right: 60, bottom: 30, left: 20},
+    width = 540 - margin.left - margin.right,  // 460
+    height = 540 - margin.top - margin.bottom  // 
 
 var svg = d3.select("#correlogramChart")
     .append("svg")
@@ -81,13 +81,11 @@ function changeChart() {
 
         // Add circles
         cor
-            // .append(function(d) {
-            //     if (d.x === d.y) {
-            //         return d.x;
-            //     } else {
-            //         return "circle";
-            //     }
-            // )
+        .filter(function(d){
+            var ypos = domain.indexOf(d.y);
+            var xpos = domain.indexOf(d.x);
+            return xpos != ypos;
+        })
             .append("circle")
             .attr("r", function(d){ return size(Math.abs(d.value*3)) })
             .style("fill", function(d){
@@ -98,6 +96,8 @@ function changeChart() {
                 } else {
                     return "#F6Bf0D"
                 }
+                // if (d.x == d.y) {
+                //     return "#F2A011"
                 // } else {
                 //     return color(d.value);
                 // }
@@ -107,8 +107,21 @@ function changeChart() {
         // Add text
         cor
         .append("text")
-        .attr("x", -15)
-        .attr("y", -15)
+        .attr("x", function(d) {
+            if (d.x === d.y) {
+                return -20;
+            } else {
+                return -15;
+            }
+        })
+        .attr("y", function(d) {
+            if (d.x === d.y) {
+                return 5;
+            } else {
+                return -17;
+            }
+        })
+        // .attr("y", -15)
         .text(function(d) {
             if (d.x === d.y) {
                 return d.x;
@@ -116,9 +129,8 @@ function changeChart() {
                 return d.value.toFixed(2);
             }
         })
-        // .attr("class", "text")
         .style("font-size", 14)
-        .style("text-align", "left")
+        .style("font-weight", "bold")
         .style("fill", function(d){
             if (d.x === d.y) {
                 return "#254466";

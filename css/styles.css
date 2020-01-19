@@ -21,6 +21,10 @@ h4 {
     margin-bottom: 17px;
 }
 
+strong {
+    color: #164C8E;
+}
+
 header {
     background-color: #F6BF0D;
     height: 150px;
@@ -109,6 +113,11 @@ select {
     border-color: #F26938;
     color: #164C8E;
     font-size: 1.2em;
+}
+
+#bubble, #correlogramChart {
+    display: flex;
+    justify-content: center;
 }
 
 #correlogram g.cor {
