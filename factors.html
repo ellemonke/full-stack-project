@@ -42,7 +42,7 @@
         <div class="row main-content">
 
             <!-- Correlogram -->
-            <div id="correlogram" class="col col-sm-12 col-md-12 col-lg-7">
+            <div class="col col-sm-12 col-md-12 col-lg-7">
                 <h4>Correlations Between Happiness Factors</h4>
                 <div id="correlogramChart"></div>
                 <form>
@@ -54,23 +54,29 @@
                         <option value="2015">2015</option>
                     </select>
                 </form>
+                <div id="correlogramLegend">
+                    <ul>
+                        <li><svg width="19" height="19"><circle cx="8" cy="10" r="8" fill="#F26938" /></svg> Strong Correlation </li>
+                        <li><svg width="19" height="19"><circle cx="10" cy="10" r="6" fill="#F6BF0D" /></svg>Moderate Correlation </li>
+                        <li><svg width="19" height="19"><circle cx="11" cy="11" r="5" fill="#A9BF5A" /></svg>Weak Correlation </li>
+                        <li><svg width="19" height="19"><circle cx="12" cy="11" r="3" fill="#008089" /></svg>Weak (-) Correlation </li>
+                    </ul>
+                </div>
             </div>
-            <div class="col col-sm-12 col-md-12 col-lg-5" style="margin-top: 70px;">
+            <div id="correlogram" class="col col-sm-12 col-md-12 col-lg-5" style="margin-top: 70px;">
                 <p>Each circle represents the correlation between two factors on the grid. The higher the coefficient, the more
-                    correlated the two factors are, 1.0 being perfectly correlated. If the coefficient is less than 0.05 and greater
-                    than -0.05, the two factors are not likely correlated. Less than -0.05 indicates a negative correlation.</p>
-                    <ol>
-                        <li><strong>Happiness (Score)</strong> is based on the Gallup World Poll question to rate one's own overall happiness on a scale from 1 to 10.</li>
-                        <li><strong>Economy</strong> is based on adjusted GDP per capita in terms of PPP (Purchasing Power Parity).</li>
-                        <li><strong>Family/Social Support</strong> is based on the average binary of the poll question “If you were in trouble, do you have relatives or friends you can count on to help you whenever you need them?”</li>
-                        <li><strong>Health</strong> is based on real data of life expectancy.</li>
-                        <li><strong>Freedom</strong> is based on the average binary of the poll question “Are you satisfied or dissatisfied with your freedom to choose what you do with your life?”</li>
-                        <li><strong>Trust</strong> is based on the average binary of the poll question “Is corruption widespread throughout the government (or businesses)?”</li>
-                        <li><strong>Generosity</strong> is based on regressing the average of answers to the question “Have you donated money to a charity in the past month?” against national GDP per capita.</li>
-                        <li><strong>Residual</strong> is the residual of other factors of happiness not already listed above (2015-2017).</li>
-                    </ol>
+                    correlated the two factors are.</p>
+                <ol>
+                    <li><strong>Happiness (Score)</strong> is based on the Gallup World Poll question rating one's own overall happiness on a scale from 1 to 10.</li>
+                    <li><strong>Economy</strong> is based on adjusted GDP per capita in terms of PPP (Purchasing Power Parity).</li>
+                    <li><strong>Family/Social Support</strong> is based on the average binary of the poll question “If you were in trouble, do you have relatives or friends you can count on to help you whenever you need them?”</li>
+                    <li><strong>Health</strong> is based on real data of life expectancy.</li>
+                    <li><strong>Freedom</strong> is based on the average binary of the poll question “Are you satisfied or dissatisfied with your freedom to choose what you do with your life?”</li>
+                    <li><strong>Trust</strong> is based on the average binary of the poll question “Is corruption widespread throughout the government (or businesses)?”</li>
+                    <li><strong>Generosity</strong> is based on regressing the average of answers to the question “Have you donated money to a charity in the past month?” against national GDP per capita.</li>
+                    <li><strong>Residual</strong> is the combination of other factors not already listed above that contribute to happiness (2015-2017).</li>
+                </ol>
             </div>
-
             <p>Of all the factors - Economy, Family, and Health seem to correlate the most with overall
                 happiness. Over the years, these factors have become even a more correlated with overall happiness. Prior to 2018, 
                 Trust (in the government) and Generosity were significantly correlated with happiness along with most of the other factors. 

@@ -140,9 +140,28 @@ select {
     justify-content: center;
 }
 
-#correlogram g.cor {
+#correlogramChart g.cor {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+#correlogram li {
+    margin-bottom: 6px;
+}
+
+#correlogramLegend ul {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 22px 0;
+    padding: 0;
+}
+
+#correlogramLegend li {
+    display: inline-flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0 0 0 5px;
+}
+
 
 /* Media Queries for Responsive CSS */
 @media (max-width:1180px) {

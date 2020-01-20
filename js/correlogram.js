@@ -89,12 +89,16 @@ function changeChart() {
             .append("circle")
             .attr("r", function(d){ return size(Math.abs(d.value*3)) })
             .style("fill", function(d){
-                if (d.value == 1) {
-                    return "#F2A011"
-                } else if (d.value <= 0.05) {
-                    return "#254466"
+                if ((d.value > 0.7) && (d.value <= 1)) {
+                    return "#F28C0F"    // dark orange - strong
+                } else if ((d.value > 0.5) && (d.value <= 0.7)) {
+                    return "#F2A011"    // light orange - moderate
+                } else if ((d.value > 0.3) && (d.value <= 0.5)) {
+                    return "#F6Bf0D"    // yellow - moderate
+                } else if ((d.value > 0.0) && (d.value <= 0.3)) {
+                    return "#A9BF5A"    // green - weak
                 } else {
-                    return "#F6Bf0D"
+                    return "#008089"    // teal - none or negative
                 }
                 // if (d.x == d.y) {
                 //     return "#F2A011"
