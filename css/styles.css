@@ -32,6 +32,7 @@ header {
 
 header h1 {
     margin: 16px 52px auto 35px;
+    white-space: nowrap;
 }
 
 header h1::after {
@@ -45,15 +46,26 @@ h1 a, h1 a:hover {
     text-decoration: none;
 }
 
-.navbar .btn {
+header nav {
+    position: absolute;
+    right: 40px;
+    top: 59px;
+}
+
+header nav li {
+    display: inline-block;
+    margin: 0 15px;
+    white-space: nowrap;
+}
+
+header nav .btn {
     background-color: #F28C0F;
     color: #fff;
     font-size: 1.25em;
-    margin: -12px 45px auto 0;
     padding: 7px 17px;
 }
 
-.navbar .btn:hover {
+header nav .btn:hover {
     background-color: #F26938;
     color: #fff;
 }
@@ -124,28 +136,58 @@ select {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* #correlogram g.cor text:hover {
-    display: none;
-} */
-
 /* Media Queries for Responsive CSS */
 @media (max-width:1180px) {
-    .navbar .btn {
-        /* margin: 5px; */
+    header nav li {
+        margin: 0 5px;
     }
 }
 
-/* col-lg */
-@media (max-width:992px) {
+@media (max-width:1095px) {  
+    header nav {
+        display: flex;
+        justify-content: flex-start;
+        position: absolute;
+        height: 30px;
+        left: 70px;
+        top: 108px;
+    }  
 
+    header nav ul {
+        background-color: #F28C0F;
+        border-radius: 5px;
+        display: flex;
+        margin: 0;
+        padding: 0 15px;
+    }
+    
+    header nav li {
+        margin: 0;
+        padding: 1px 15px;
+        text-align: center;
+    }
+
+    header nav li .btn {
+        font-size: 1.2em;
+        padding: 0;
+    }
+
+    header nav .btn:hover {
+        background-color: transparent;
+        text-decoration: underline;
+    }
 }
 
-/* col-md */
-@media (max-width:768px) {
+@media (max-width:625px) {
+    header nav {
+        height: 25px;
+    }
 
-}
+    header nav ul, header nav li {
+        padding: 0 7px;
+    }
 
-/* col-sm */
-@media (max-width:576px) {
-
+    header nav li .btn {
+        font-size: 1.1em;
+    }
 }

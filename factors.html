@@ -26,11 +26,13 @@
         <header class="row">
             <h1><a href="index.html">World Happiness</a></h1>
             <!-- Navigation -->
-            <nav class="navbar">
-                <!-- <div><a class="btn" href="index.html">Happiness Factors</a></div> -->
-                <div><a class="btn" href="index.html">Happiness Factors</a></div>
-                <div><a class="btn" href="map.html">World Map</a></div>
-                <div><a class="btn" href="summary.html">Are We Happy?</a></div>
+            <nav>
+                <ul>
+                    <li><a class="btn" href="index.html">Happiness Scores</a></li>
+                    <li><a class="btn" href="factors.html">Factors</a></li>
+                    <li><a class="btn" href="map.html">World Map</a></li>
+                    <li><a class="btn" href="summary.html">Are We Happy?</a></li>
+                </ul>
             </nav>
         </header>
 
@@ -56,13 +58,13 @@
                     correlated the two factors are, 1.0 being perfectly correlated. If the coefficient is less than 0.05 and greater
                     than -0.05, the two factors are not likely correlated. Less than -0.05 indicates a negative correlation.</p>
                     <ol>
-                        <li><strong>Happiness</strong> is based on a poll question to rate one's own overall happiness on a scale from 1 to 10.</li>
+                        <li><strong>Happiness</strong> is based on the Gallup World Poll question to rate one's own overall happiness on a scale from 1 to 10.</li>
                         <li><strong>Economy</strong> is based on adjusted GDP per capita in terms of PPP (Purchasing Power Parity).</li>
-                        <li><strong>Family/Social Support</strong> is based on the poll question “If you were in trouble, do you have relatives or friends you can count on to help you whenever you need them?”</li>
+                        <li><strong>Family/Social Support</strong> is based on the average binary of the poll question “If you were in trouble, do you have relatives or friends you can count on to help you whenever you need them?”</li>
                         <li><strong>Health</strong> is based on real data of life expectancy.</li>
-                        <li><strong>Freedom</strong> is based on the poll question “Are you satisfied or dissatisfied with your freedom to choose what you do with your life?”</li>
-                        <li><strong>Trust</strong> is based on the poll question “Is corruption widespread throughout the government (or businesses)?”</li>
-                        <li><strong>Generosity</strong> is based on regressing the average of answers to the question “Have you donated money to a charity in the past month?” against GDP per capita.</li>
+                        <li><strong>Freedom</strong> is based on the average binary of the poll question “Are you satisfied or dissatisfied with your freedom to choose what you do with your life?”</li>
+                        <li><strong>Trust</strong> is based on the average binary of the poll question “Is corruption widespread throughout the government (or businesses)?”</li>
+                        <li><strong>Generosity</strong> is based on regressing the average of answers to the question “Have you donated money to a charity in the past month?” against national GDP per capita.</li>
                         <li><strong>Dystopia Residual</strong> is the residual of other factors of happiness not already listed above (2015-2017).</li>
                     </ol>
             </div>
