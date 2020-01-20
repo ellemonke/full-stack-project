@@ -27,9 +27,9 @@ strong {
 
 form em {
     color: #164C8E;
-    /* font-weight: bold; */
     font-size: 1.2em;
     font-style: normal;
+    margin-top: 14px;
 }
 
 header {
@@ -125,10 +125,6 @@ form .btn:hover {
     color: #fff;
 }
 
-form em {
-    margin-top: 14px;
-}
-
 select {
     border-color: #F26938;
     color: #164C8E;
@@ -136,6 +132,10 @@ select {
 }
 
 #bubble, #correlogramChart, #geochart_div {
+    margin: 0 auto;
+}
+
+#correlogramChart {
     display: flex;
     justify-content: center;
 }
