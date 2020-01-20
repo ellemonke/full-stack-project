@@ -25,6 +25,13 @@ strong {
     color: #164C8E;
 }
 
+form em {
+    color: #164C8E;
+    /* font-weight: bold; */
+    font-size: 1.2em;
+    font-style: normal;
+}
+
 header {
     background-color: #F6BF0D;
     height: 150px;
@@ -96,10 +103,11 @@ form {
 
 form select {
     margin: 14px 10px 28px 10px;
+    outline: none !important;
 }
 
 form optgroup {
-    font-size: 18px;
+    font-size: 1.2em;
 }
 
 form .btn {
