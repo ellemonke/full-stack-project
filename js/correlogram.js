@@ -2,9 +2,9 @@
 var dropdown = d3.select("#correlogramForm");
 
 // Create the graph area
-var margin = {top: 50, right: 60, bottom: 30, left: 20},
-    width = 540 - margin.left - margin.right,  // 460
-    height = 540 - margin.top - margin.bottom  // 
+var margin = {top: 50, right: 50, bottom: 30, left: 25},
+    width = 540 - margin.left - margin.right,  // 465
+    height = 530 - margin.top - margin.bottom  // 450
 
 var svg = d3.select("#correlogramChart")
     .append("svg")
@@ -109,7 +109,7 @@ function changeChart() {
         .append("text")
         .attr("x", function(d) {
             if (d.x === d.y) {
-                return -20;
+                return -25;
             } else {
                 return -15;
             }
@@ -124,7 +124,11 @@ function changeChart() {
         // .attr("y", -15)
         .text(function(d) {
             if (d.x === d.y) {
-                return d.x;
+                if (d.x === "Dystopia_Residual") {
+                    return "Residual"
+                } else {
+                    return d.x;
+                }
             } else {
                 return d.value.toFixed(2);
             }
