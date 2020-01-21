@@ -2,7 +2,6 @@ var yearDropdown = d3.select("#year");
 var factorDropdown = d3.select("#factor");
 var chart = d3.select("#chart");
 
-var color = [];
 function colorChange(factor) {
   if (factor == 'Happiness') {
     return ['white',  '#F26938'];
@@ -26,7 +25,7 @@ function colorChange(factor) {
     return ['white',  '#164C8E'];
   }
   else if (factor == 'Dystopia') {
-    return ['white',  '#706464'];
+    return ['white',  '#A45B5B'];
   }
 }
 
@@ -48,7 +47,7 @@ function changeMap() {
         
         color = colorChange(factor)
         
-        var options = {colorAxis: {colors: color},}
+        var options = {colorAxis: {colors: color}, datalessRegionColor: 'silver'}
         
         var chart = new google.visualization.GeoChart(document.getElementById('geochart_div'));
   
@@ -60,7 +59,6 @@ function changeMap() {
 
 changeMap();
 
-
 factorDropdown.on("change", changeMap, colorChange);
 yearDropdown.on("change", changeMap);
 
@@ -70,3 +68,4 @@ yearDropdown.on("change", changeMap);
 //   backgroundColor: '#81d4fa',
 //   datalessRegionColor: '#f8bbd0',
 //   defaultColor: '#f5f5f5',
+
