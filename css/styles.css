@@ -9,9 +9,16 @@ a, a:hover {
     color: #164C8E;
 }
 
-h1 {
+h1{
     color: #164C8E;
     font-weight: bold;
+}
+
+h3 {
+    color: #164C8E;
+    font-size: 1.4em;
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 
 h4 {
@@ -158,6 +165,9 @@ select {
     padding: 0 0 0 5px;
 }
 
+#factors li {
+    margin-bottom: 6px;
+}
 
 /* Media Queries for Responsive CSS */
 @media (max-width:1180px) {
