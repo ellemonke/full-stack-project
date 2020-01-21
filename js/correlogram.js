@@ -1,12 +1,12 @@
 // Assign values
-var dropdown = d3.select("#correlogramForm");
+var dropdown = d3.select("#year");
 
 // Create the graph area
 var margin = {top: 50, right: 50, bottom: 30, left: 25},
     width = 540 - margin.left - margin.right,  // 465
     height = 530 - margin.top - margin.bottom  // 450
 
-var svg = d3.select("#correlogramChart")
+var svg = d3.select("#correlogram")
     .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -20,8 +20,8 @@ var chart = d3.select("#chart");
 function changeChart() {
 
     // Reset the year
-    var year = d3.select("#correlogramForm").property("value");
-    var url = `data/cleaned_data/correlation_${year}.csv`;
+    var year = d3.select("#year").property("value");
+    var url = `data/correlogram_data/correlations_${year}.csv`;
 
     // Clear the previous chart
     chart.html("");

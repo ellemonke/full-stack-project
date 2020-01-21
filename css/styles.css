@@ -131,31 +131,27 @@ select {
     font-size: 1.2em;
 }
 
-#bubble, #correlogramChart, #geochart_div {
+#bubble, #correlogram, #geochart_div {
     margin: 0 auto;
 }
 
-#correlogramChart {
+#correlogram {
     display: flex;
     justify-content: center;
 }
 
-#correlogramChart g.cor {
+#correlogram g.cor {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#correlogram li {
-    margin-bottom: 6px;
-}
-
-#correlogramLegend ul {
+#c_legend ul {
     display: flex;
     justify-content: center;
     margin: 0 0 22px 0;
     padding: 0;
 }
 
-#correlogramLegend li {
+#c_legend li {
     display: inline-flex;
     justify-content: space-between;
     list-style: none;

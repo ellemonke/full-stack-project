@@ -44,9 +44,9 @@
             <!-- Correlogram -->
             <div class="col col-sm-12 col-md-12 col-lg-7">
                 <h4>Correlations Between Happiness Factors</h4>
-                <div id="correlogramChart"></div>
+                <div id="correlogram"></div>
                 <form>
-                    <select id="correlogramForm">
+                    <select id="year">
                         <option value="2019">2019</option>
                         <option value="2018">2018</option>
                         <option value="2017">2017</option>
@@ -54,18 +54,18 @@
                         <option value="2015">2015</option>
                     </select>
                 </form>
-                <div id="correlogramLegend">
+                <div id="c_legend">
                     <ul>
-                        <li><svg width="19" height="19"><circle cx="8" cy="10" r="8" fill="#F26938" /></svg> Strong Correlation </li>
-                        <li><svg width="19" height="19"><circle cx="10" cy="10" r="6" fill="#F6BF0D" /></svg>Moderate Correlation </li>
-                        <li><svg width="19" height="19"><circle cx="11" cy="11" r="5" fill="#A9BF5A" /></svg>Weak Correlation </li>
-                        <li><svg width="19" height="19"><circle cx="12" cy="11" r="3" fill="#008089" /></svg>Weak (-) Correlation </li>
+                        <li><svg width="19" height="19"><circle cx="8" cy="10" r="8" fill="#F26938" /></svg> Strong Correlation</li>
+                        <li><svg width="19" height="19"><circle cx="10" cy="10" r="6" fill="#F6BF0D" /></svg>Moderate Correlation</li>
+                        <li><svg width="19" height="19"><circle cx="11" cy="11" r="5" fill="#A9BF5A" /></svg>Weak Correlation</li>
+                        <li><svg width="19" height="19"><circle cx="12" cy="11" r="3" fill="#008089" /></svg>Weak (-) Correlation</li>
                     </ul>
                 </div>
             </div>
-            <div id="correlogram" class="col col-sm-12 col-md-12 col-lg-5" style="margin-top: 70px;">
+            <div class="col col-sm-12 col-md-12 col-lg-5" style="margin-top: 70px;">
                 <p>Each circle represents the correlation between two factors on the grid. The higher the coefficient, the more
-                    correlated the two factors are.</p>
+                    correlated the two factors are, with 1.0 being perfectly correlated.</p>
                 <ol>
                     <li><strong>Happiness (Score)</strong> is based on the Gallup World Poll question rating one's own overall happiness on a scale from 1 to 10.</li>
                     <li><strong>Economy</strong> is based on adjusted GDP per capita in terms of PPP (Purchasing Power Parity).</li>
@@ -77,12 +77,11 @@
                     <li><strong>Residual</strong> is the combination of other factors not already listed above that contribute to happiness (2015-2017).</li>
                 </ol>
             </div>
-            <p>Of all the factors - Economy, Family, and Health seem to correlate the most with overall
-                happiness. Over the years, these factors have become even a more correlated with overall happiness. Prior to 2018, 
-                Trust (in the government) and Generosity were significantly correlated with happiness along with most of the other factors. 
-                However between 2017 and 2018, trust in the government became less correlated with happiness. Between 2016 and 2018, generosity
-                became increasingly correlated with happiness, but then suddenly in 2019 it became less correlated to all factors and 
-                negatively correlated to the economy.
+            <p>Of all the factors - Economy, Family, and Health have the strongest correlations to overall happiness. Prior to 2017,
+                Trust (in the government) was moderately correlated with overall happiness. In 2017 and after, Trust (in the government)
+                became less correlated with happiness. Conversely, Generosity became increasingly correlated with overall happiness
+                after 2017. In 2019, when Economy became more correlated to happiness, Generosity dropped in correlation to most factors 
+                but still contributed to overall happiness.
             </p>
         </div>
 
