@@ -1,8 +1,17 @@
 /* Main Template and Homepage */
-body, .container {
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.container-fluid {
+    min-height: 100%;
+    min-width: 100%;
     color: #262626;
     font-size: 14px;
-    height: 100%;
+    position: relative;
+    padding-bottom: 88px;
 }
 
 a, a:hover {
@@ -70,6 +79,7 @@ header nav li {
     display: inline-block;
     margin: 0 15px;
     white-space: nowrap;
+    outline: none !important;
 }
 
 header nav .btn {
@@ -96,6 +106,10 @@ footer {
     background-color: #164C8E;
     color: #fff;
     font-size: 0.8em;
+    bottom: 0;
+    height: 88px;
+    min-width: 100%;
+    position: absolute;
 }
 
 footer a, footer a:hover {
