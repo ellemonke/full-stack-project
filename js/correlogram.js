@@ -128,10 +128,12 @@ function changeChart() {
         // .attr("y", -15)
         .text(function(d) {
             if (d.x === d.y) {
-                if (d.x === "Dystopia_Residual") {
+                if (d.x === "Happiness_Score") {
+                    return "Happiness"
+                } else if (d.x === "Dystopia_Residual") {
                     return "Residual"
                 } else {
-                    return d.x;
+                    return d.x
                 }
             } else {
                 return d.value.toFixed(2);
