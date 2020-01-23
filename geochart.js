@@ -63,9 +63,4 @@ factorDropdown.on("change", changeMap, colorChange);
 yearDropdown.on("change", changeMap);
 
 
-// var options = {}
-//   colorAxis: {colors: ['#00853f', 'black', '#e31b23']},
-//   backgroundColor: '#81d4fa',
-//   datalessRegionColor: '#f8bbd0',
-//   defaultColor: '#f5f5f5',
 
