@@ -32,7 +32,7 @@ function colorChange(factor) {
 function changeMap() {
   var year = d3.select("#year").property("value");
   var factor = d3.select("#factor").property("value");
-  var url = `data/GeoChart_Data/${factor}_${year}.csv`;
+  var url = `./data/GeoChart_Data/${factor}_${year}.csv`;
 
   chart.html("");
 
