@@ -2,41 +2,30 @@
 by Bryan Domogalla, Ellen Hsu, Rachel Hunter
 
 ## Project Summary
-The World Happiness Report is a survey of global happiness reported by the United Nations. The overall Happiness Score includes measures of: Family, Health (Life Expectancy), Freedom, Trust (Government Corruption), Generosity, and Dystopia Residual - which are other contributors to happiness not among those already listed. 
+The World Happiness Report is a survey of global happiness reported by the United Nations (from 2015-2019). The overall Happiness Score includes measures of: Family, Health (Life Expectancy), Freedom, Trust (Government Corruption), Generosity, and Dystopia Residual - which is a residual to account for the difference in the sum of all the factors compared to the Happiness Score. 
 
-We will be using D3 interactive visualizations to explore how these happiness factors compare in different regions/countries; any significant changes in individual factors; and/or correlations between two or more happiness factors.
+We built interactive visualizations to show how these factors compare to happiness scores for each country and region; how the factors correlate to one another; and a world map with all rankings and scores on a scale.
 
-### Data Source
+### Original Data Source
 https://www.kaggle.com/unsdsn/world-happiness
 
-### Tech Stack
-**Back-End/Data Analysis:** (Python/Pandas)<br>
-**Front-End/UX Design:** (HTML, Bootstrap, CSS, D3, JavaScript)<br>
+### Live Site
+https://ellemonke.github.io/full-stack-project/
 
-### Due Dates
-- **Wed, Jan 15:** Basic Bootstrap template (Ellen)<br>
-- **Sat, Jan 18:** First draft charts<br>
-    * Geochart (Bryan)<br>
-    * Bubble Chart (Rachel)<br>
-    * Correlogram: (Ellen)<br>
-- **Mon, Jan 20:** Revised Charts<br>
-- **Wed, Jan 22:** Analysis Report<br>
-- **Sat, Jan 25:** Final Presentation<br>
+### Sitemap
+- Happiness Score v. Happiness Factor (bubble chart)
+- Correlations Between Happiness Factors (correlogram)
+- World Map (Google Charts)
+- Summary Report
 
-### Dashboard Inspiration 
-Our dashboard may consist of an interactive global map, filters, and sub-charts similar to this one.
-![**Dashboard Inspo**](images/inspo-dashboard.png)<br>
-Source: https://www.wto.org/english/res_e/statis_e/statis_bis_e.htm
+### Process
+1. **Data Analysis**
+    - We used Python (plus Pandas, Numpy and SciPy) in Jupyter Notebooks to prepare the data as CSV files to feed into our charts. This included standardizing columns, parsing factors and years into digestible CSVs, and creating correlations tables. 
+2. **Chart Creation**
+    - The bubble chart and correlogram of were created with JavaScript plus D3.
+    - The world map was created with JavaScript, D3, and a Google Charts library.
+3. **Front-End/Web Design**
+    - The website template was created using HTML, Bootstrap, and CSS.
 
-### Chart Inspiration
-**Geochart:**<br>
-![Geochart](images/inspo-geochart.png)<br>
-Source: https://developers.google.com/chart/interactive/docs/gallery/geochart
 
-**Correlogram:**<br>
-![Correlogram](images/inspo-correlogram.png)<br>
-Source: https://www.d3-graph-gallery.com/graph/correlogram_basic.html
 
-**Bubble Chart:**<br>
-![Bubble Chart](images/inspo-bubble.png)<br>
-Source: https://developers.google.com/chart/interactive/docs/gallery/bubblechart
