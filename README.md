@@ -23,7 +23,7 @@ https://ellemonke.github.io/full-stack-project/
     - We used Python (plus Pandas, Numpy and SciPy) in Jupyter Notebooks to prepare the data as CSV files to feed into our charts. This included standardizing columns, parsing factors and years into digestible CSVs, and creating correlations tables. 
 2. **Chart Creation**
     - The bubble chart and correlogram of were created with JavaScript plus D3.
-    - The world map was created with JavaScript, D3, and a Google Charts library.
+    - The world map was created with JavaScript, D3, jQuery, and Google Charts library.
 3. **Front-End/Web Design**
     - The website template was created using HTML, Bootstrap, and CSS.
 
