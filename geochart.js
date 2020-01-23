@@ -25,7 +25,7 @@ function colorChange(factor) {
     return ['white',  '#164C8E'];
   }
   else if (factor == 'Dystopia') {
-    return ['white',  '#A45B5B'];
+    return ['#A45B5B', 'white', 'green'];
   }
 }
 
