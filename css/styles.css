@@ -1,17 +1,33 @@
 /* Main Template and Homepage */
-body, .container {
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.container-fluid {
+    min-height: 100%;
+    min-width: 100%;
     color: #262626;
     font-size: 14px;
-    height: 100%;
+    position: relative;
+    padding-bottom: 88px;
 }
 
 a, a:hover {
     color: #164C8E;
 }
 
-h1 {
+h1{
     color: #164C8E;
     font-weight: bold;
+}
+
+h3 {
+    /* color: #164C8E; */
+    font-size: 1.4em;
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 
 h4 {
@@ -25,6 +41,13 @@ strong {
     color: #164C8E;
 }
 
+form em {
+    color: #164C8E;
+    font-size: 1.2em;
+    font-style: normal;
+    margin-top: 14px;
+}
+
 header {
     background-color: #F6BF0D;
     height: 150px;
@@ -32,6 +55,7 @@ header {
 
 header h1 {
     margin: 16px 52px auto 35px;
+    white-space: nowrap;
 }
 
 header h1::after {
@@ -45,15 +69,27 @@ h1 a, h1 a:hover {
     text-decoration: none;
 }
 
-.navbar .btn {
+header nav {
+    position: absolute;
+    right: 40px;
+    top: 59px;
+}
+
+header nav li {
+    display: inline-block;
+    margin: 0 15px;
+    white-space: nowrap;
+    outline: none !important;
+}
+
+header nav .btn {
     background-color: #F28C0F;
     color: #fff;
     font-size: 1.25em;
-    margin: -12px 45px auto 0;
     padding: 7px 17px;
 }
 
-.navbar .btn:hover {
+header nav .btn:hover {
     background-color: #F26938;
     color: #fff;
 }
@@ -70,6 +106,10 @@ footer {
     background-color: #164C8E;
     color: #fff;
     font-size: 0.8em;
+    bottom: 0;
+    height: 88px;
+    min-width: 100%;
+    position: absolute;
 }
 
 footer a, footer a:hover {
@@ -84,10 +124,11 @@ form {
 
 form select {
     margin: 14px 10px 28px 10px;
+    outline: none !important;
 }
 
 form optgroup {
-    font-size: 18px;
+    font-size: 1.2em;
 }
 
 form .btn {
@@ -105,17 +146,17 @@ form .btn:hover {
     color: #fff;
 }
 
-form em {
-    margin-top: 14px;
-}
-
 select {
     border-color: #F26938;
     color: #164C8E;
     font-size: 1.2em;
 }
 
-#bubble, #correlogramChart, #geochart_div {
+#bubble, #correlogram, #geochart_div {
+    margin: 0 auto;
+}
+
+#correlogram {
     display: flex;
     justify-content: center;
 }
@@ -124,28 +165,76 @@ select {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* #correlogram g.cor text:hover {
-    display: none;
-} */
+#c_legend ul {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 22px 0;
+    padding: 0;
+}
+
+#c_legend li {
+    display: inline-flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0 0 0 5px;
+}
+
+#factors li {
+    margin-bottom: 6px;
+}
 
 /* Media Queries for Responsive CSS */
 @media (max-width:1180px) {
-    .navbar .btn {
-        /* margin: 5px; */
+    header nav li {
+        margin: 0 5px;
     }
 }
 
-/* col-lg */
-@media (max-width:992px) {
+@media (max-width:1095px) {  
+    header nav {
+        display: flex;
+        justify-content: flex-start;
+        position: absolute;
+        height: 30px;
+        left: 70px;
+        top: 108px;
+    }  
 
+    header nav ul {
+        background-color: #F28C0F;
+        border-radius: 5px;
+        display: flex;
+        margin: 0;
+        padding: 0 15px;
+    }
+    
+    header nav li {
+        margin: 0;
+        padding: 1px 15px;
+        text-align: center;
+    }
+
+    header nav li .btn {
+        font-size: 1.2em;
+        padding: 0;
+    }
+
+    header nav .btn:hover {
+        background-color: transparent;
+        text-decoration: underline;
+    }
 }
 
-/* col-md */
-@media (max-width:768px) {
+@media (max-width:625px) {
+    header nav {
+        height: 25px;
+    }
 
-}
+    header nav ul, header nav li {
+        padding: 0 7px;
+    }
 
-/* col-sm */
-@media (max-width:576px) {
-
+    header nav li .btn {
+        font-size: 1.1em;
+    }
 }

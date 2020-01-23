@@ -21,10 +21,13 @@
         <header class="row">
             <h1><a href="index.html">World Happiness</a></h1>
             <!-- Navigation -->
-            <nav class="navbar" >
-                <div><a class="btn" href="index.html">Happiness Factors</a></div>
-                <div><a class="btn" href="map.html">World Map</a></div>
-                <div><a class="btn" href="summary.html">Are We Happy?</a></div>
+            <nav>
+                <ul>
+                    <li><a class="btn" href="index.html">Happiness Score</a></li>
+                    <li><a class="btn" href="factors.html">Factors</a></li>
+                    <li><a class="btn" href="map.html">World Map</a></li>
+                    <li><a class="btn" href="summary.html">Are We Happy?</a></li>
+                </ul>
             </nav>
         </header>
 
@@ -33,7 +36,7 @@
 
             <!-- Geochart -->
             <section id="geochart" class="col col-12">
-                <div id="geochart_div" style="width: 1200px; height: 500px;"></div>
+                <div id="geochart_div" style="width: 1000px; height: 500px;"></div>
                 <h4>World Map</h4>
                 <form>
                     <select name="year" id="year">
@@ -44,25 +47,56 @@
                         <option value="2015">2015</option>
                     </select>
                     <select name="factor" id="factor">
-                        <option value="Happiness">Total Happiness</option>
+                        <option value="Happiness">Happiness</option>
                         <option value="Economy">Economy</option>
                         <option value="Family">Family</option>
                         <option value="Health">Health</option>
                         <option value="Freedom">Freedom</option>
                         <option value="Trust">Trust</option>
                         <option value="Generosity">Generosity</option>
-                        <option value="Dystopia">Dystopia</option>
+                        <option value="Dystopia">Residual</option>
                     </select>
                 </form>
-                <p>Praesent feugiat varius
-                    ultricies. Maecenas congue iaculis mauris id aliquam. Aenean vulputate, odio non convallis molestie, purus quam
-                    lacinia eros, porttitor ultricies orci enim non lorem. Pellentesque eu dui enim. Sed varius, orci quis euismod
-                    viverra, erat diam blandit lacus, et imperdiet dui purus non justo. Donec scelerisque, nulla mattis maximus
-                    volutpat, augue sem hendrerit massa, id commodo ante lectus ut lorem. Nulla a elit sagittis, consectetur neque nec,
-                    semper odio. Praesent nulla magna, dignissim vitae tortor eget, scelerisque semper arcu.</p>
-                <p>Nunc ultricies, mi vel bibendum ullamcorper, justo tellus mollis mauris, nec egestas lacus lacus venenatis quam.
-                    Curabitur iaculis finibus metus ut egestas. Pellentesque eleifend nulla sit amet diam pulvinar, eu lobortis risus
-                    varius. Proin sit amet libero elit. Cras bibendum risus purus. Cras quis sollicitudin erat. </p>
+                <h3 style="color: #F26938"> Happiness </h3>
+                    <p>
+                        The Americas rate very high on happiness scores across each year, followed by Europe (especially Northern, which has some of the happiest countries in the world), Eastern Asia and then Africa by a large margin. Saudi Arabia and Israel are very happy countries surrounded by some of the least happy countries in the world. The Aussies are happy. Happiness Rankings don’t seem to drastically change anywhere that much over this time span.
+                    </p>
+                
+                <h3 style="color: #F28C0F">Economy </h3>
+                    <p>
+                        Economy is measured by GDP per capita and is therefore only marginally changes over this time span. North America rates highly here as does western and northern Europe, Australia and some of the resource rich middle eastern countries. As shown in the correlogram, Economy and Happiness are highly correlated with a correlation coefficient of 0.79. Africa has some of the lowest scores here and by a large margin.
+                    </p>
+                
+                <h3 style="color: #F6BF0D"> Family </h3>
+                    <p>
+                        Family is measured by the question: “If you were in trouble, do you have relatives or friends you can count on to help you whenever you need them?”. The variance among countries across this factor is very small, most countries score highly here, and the only low scores are in south Asia, the Middle East and Middle Africa.
+                    </p>
+                
+                <h3 style="color: #A9BF5A"> Health</h3>
+                    <p>
+                        Health is measured by life expectancy and is highly correlated with happiness with a correlation coefficient of 0.77. Health is also highly correlated with Economy (0.83) as wealthier countries have better access to good health care and food. The lowest scoring countries are in Africa, south Asia and the less wealthy Middle East countries. Western and Northern Europe have most of the highest scores. In many African countries there are drastic increases in health from 2015 to 2019, whereas most of the rest of the world is largely unchanged.
+                    </p>
+                </>
+                <h3 style="color: #008089"> Freedom  </h3>
+                    <p>
+                        Freedom is measured by people’s satisfaction with their freedom to do what they wish to do with their life and is moderately correlated with happiness with a coefficient of 0.55. Freedom is not very correlated with other factors and therefore several countries score differently here than in other factors. Notably, eastern African countries score highly here as do south Asian countries. The United States is not the freest country in the world. Over this time span there aren’t any worldwide trends in freedom, just certain countries having more and others having less.
+                    </p>
+                </>
+                <h3 style="color: #1C6683"> Trust </h3>
+                    <p>
+                        Trust is measured by people’s perceptions of whether corruption is widespread throughout government or business and it has a very weak correlation to happiness with a coefficient of 0.08. Globally, there are a few countries that score highly, but most countries don’t have much Trust. Canada, northern Europe and Australia score highly here. The Americas had more trust in 2015 than 2019 and south Asia has seen the inverse trend.
+                    </p>
+                
+                <h3 style="color: #164C8E">Generosity </h3>
+                    <p>
+                        Generosity is measured by whether people are charitable after accounting for country wealth and has a weak correlation with happiness with a coefficient of 0.39. Generosity is also largely uncorrelated with the other factors. The United States and Canada score highly as do many countries in Africa and south Asia and the Middle East. South America and many European countries score low here, especially relative to their number of countries with high economy ratings. In fact, Generosity and Economy have a negative correlation of 0.08 so countries who have an abundance are not necessarily more generous. Generosity has increased in Africa and Asia across this timespan.
+                    </p>
+                </> 
+                <h3 style="color: #A45B5B"> Dystopia Residual </h3>
+                    <p>
+                        The Dystopia Residual is the difference between a country’s happiness score and the sum of their scores in the six measured factors. Those six factors do not perfectly explain why certain countries are happy or not. The way the residual is calculated, the values are always going to be positive but countries who have a score lower than 1.88 are less happy than they should be based on the six measured factors. Middle African countries score highly as do the Americas. Many countries in Asia and the Middle East have scores lower than 1.88 suggesting that they are less happy than they ought to be.
+                    </p>
+                
             </section>
         </div>
 

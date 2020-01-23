@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>World Happiness</title>
+
+    <!-- Bootstrap components -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- D3 -->
+    <script src="https://d3js.org/d3.v5.js"></script>
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <!-- Header -->
+        <header class="row">
+            <h1><a href="index.html">World Happiness</a></h1>
+            <!-- Navigation -->
+            <nav>
+                <ul>
+                    <li><a class="btn" href="index.html">Happiness Score</a></li>
+                    <li><a class="btn" href="factors.html">Factors</a></li>
+                    <li><a class="btn" href="map.html">World Map</a></li>
+                    <li><a class="btn" href="summary.html">Are We Happy?</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <div class="row main-content">
+
+            <!-- Correlogram -->
+            <div class="col-12 col-lg-7">
+                <h4>Correlations Between Happiness Factors</h4>
+                <div id="correlogram"></div>
+                <form>
+                    <select id="year">
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                    </select>
+                </form>
+                <div id="c_legend">
+                    <ul>
+                        <li><svg width="19" height="19"><circle cx="8" cy="10" r="8" fill="#F26938" /></svg> Strong Correlation</li>
+                        <li><svg width="19" height="19"><circle cx="10" cy="10" r="6" fill="#F6BF0D" /></svg>Moderate Correlation</li>
+                        <li><svg width="19" height="19"><circle cx="11" cy="11" r="5" fill="#A9BF5A" /></svg>Weak Correlation</li>
+                        <li><svg width="19" height="19"><circle cx="12" cy="11" r="3" fill="#008089" /></svg>Weak (-) Correlation</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-lg-5" style="margin-top: 70px;">
+                <p>Each circle represents the correlation between two factors on the grid. The higher the coefficient, the more
+                    correlated the two factors are, with 1.0 being perfectly correlated.</p>
+                <ol id="factors">
+                    <li><strong>Happiness (Score)</strong> is based on the Gallup World Poll question rating one's own overall happiness on a scale from 1 to 10.</li>
+                    <li><strong>Economy</strong> is based on adjusted GDP per capita in terms of PPP (Purchasing Power Parity).</li>
+                    <li><strong>Family/Social Support</strong> is based on the average binary of the poll question “If you were in trouble, do you have relatives or friends you can count on to help you whenever you need them?”</li>
+                    <li><strong>Health</strong> is based on real data of life expectancy.</li>
+                    <li><strong>Freedom</strong> is based on the average binary of the poll question “Are you satisfied or dissatisfied with your freedom to choose what you do with your life?”</li>
+                    <li><strong>Trust</strong> is based on the average binary of the poll question “Is corruption widespread throughout the government (or businesses)?”</li>
+                    <li><strong>Generosity</strong> is based on regressing the average of answers to the question “Have you donated money to a charity in the past month?” against national GDP per capita.</li>
+                    <li><strong>Residual</strong> is the combination of other factors not already listed above that contribute to happiness.</li>
+                </ol>
+            </div>
+            <p>Of all the factors - Economy, Family, and Health have the strongest correlations to overall happiness. Freedom and
+                Trust have moderate correlations with happiness. Generosity appears to be uncorrelated with happiness. Freedom, 
+                Trust and Generosity have low to moderate correlations with one another. Residual factors of happiness are 
+                uncorrelated with the other factors but still strongly correlate with overall happiness. These relationships vary 
+                only slightly from year to year.
+            </p>
+            <!-- <p>Of all the factors - Economy, Family, and Health have the strongest correlations to overall happiness. Prior to 2017,
+                Trust (in the government) was moderately correlated with overall happiness. In 2017 and after, Trust (in the government)
+                became less correlated with happiness. Conversely, Generosity became increasingly correlated with overall happiness
+                after 2017. In 2019, when Economy became more correlated to happiness, Generosity dropped in correlation to most factors 
+                but still contributed to overall happiness.
+            </p> -->
+    </div>
+
+        <!-- Footer -->
+        <footer class="row">
+            <p>&copy;2020 Bryan Domogalla, Ellen Hsu, and Rachel Hunter - University of Oregon Data Analytics Boot Camp.<br>
+                The complete <a href="https://worldhappiness.report/ed/2019/changing-world-happiness/">World Happiness
+                Report</a> is produced by the United Nations Sustainable Development Solutions Network in partnership with 
+                the Ernesto Illy Foundation.</p>
+        </footer>
+
+    </div>
+
+    <!-- JS for Charts -->
+
+    <script src="js/correlogram.js"></script>
+
+</body>
+
+</html>

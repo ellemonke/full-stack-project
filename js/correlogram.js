@@ -1,12 +1,12 @@
 // Assign values
-var dropdown = d3.select("#correlogramForm");
+var dropdown = d3.select("#year");
 
 // Create the graph area
-var margin = {top: 50, right: 60, bottom: 30, left: 20},
-    width = 540 - margin.left - margin.right,  // 460
-    height = 540 - margin.top - margin.bottom  // 
+var margin = {top: 50, right: 50, bottom: 30, left: 25},
+    width = 540 - margin.left - margin.right,  // 465
+    height = 530 - margin.top - margin.bottom  // 450
 
-var svg = d3.select("#correlogramChart")
+var svg = d3.select("#correlogram")
     .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -20,8 +20,8 @@ var chart = d3.select("#chart");
 function changeChart() {
 
     // Reset the year
-    var year = d3.select("#correlogramForm").property("value");
-    var url = `data/cleaned_data/correlation_${year}.csv`;
+    var year = d3.select("#year").property("value");
+    var url = `data/correlogram_data/correlations_${year}.csv`;
 
     // Clear the previous chart
     chart.html("");
@@ -89,12 +89,16 @@ function changeChart() {
             .append("circle")
             .attr("r", function(d){ return size(Math.abs(d.value*3)) })
             .style("fill", function(d){
-                if (d.value == 1) {
-                    return "#F2A011"
-                } else if (d.value <= 0.05) {
-                    return "#254466"
+                if ((d.value > 0.7) && (d.value <= 1)) {
+                    return "#F28C0F"    // dark orange - strong
+                } else if ((d.value > 0.5) && (d.value <= 0.7)) {
+                    return "#F2A011"    // light orange - moderate
+                } else if ((d.value > 0.3) && (d.value <= 0.5)) {
+                    return "#F6Bf0D"    // yellow - moderate
+                } else if ((d.value > 0.0) && (d.value <= 0.3)) {
+                    return "#A9BF5A"    // green - weak
                 } else {
-                    return "#F6Bf0D"
+                    return "#008089"    // teal - none or negative
                 }
                 // if (d.x == d.y) {
                 //     return "#F2A011"
@@ -109,7 +113,7 @@ function changeChart() {
         .append("text")
         .attr("x", function(d) {
             if (d.x === d.y) {
-                return -20;
+                return -25;
             } else {
                 return -15;
             }
@@ -124,7 +128,13 @@ function changeChart() {
         // .attr("y", -15)
         .text(function(d) {
             if (d.x === d.y) {
-                return d.x;
+                if (d.x === "Happiness_Score") {
+                    return "Happiness"
+                } else if (d.x === "Dystopia_Residual") {
+                    return "Residual"
+                } else {
+                    return d.x
+                }
             } else {
                 return d.value.toFixed(2);
             }
