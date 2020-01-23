@@ -16,7 +16,6 @@
 
     <!-- D3 -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
-
     <!--Added tooltip components-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -37,13 +36,10 @@
         <header class="row">
             <h1><a href="index.html">World Happiness</a></h1>
             <!-- Navigation -->
-            <nav>
-                <ul>
-                    <li><a class="btn" href="index.html">Happiness Score</a></li>
-                    <li><a class="btn" href="factors.html">Factors</a></li>
-                    <li><a class="btn" href="map.html">World Map</a></li>
-                    <li><a class="btn" href="summary.html">Are We Happy?</a></li>
-                </ul>
+            <nav class="navbar">
+                <div><a class="btn" href="index.html">Happiness Factors</a></div>
+                <div><a class="btn" href="map.html">World Map</a></div>
+                <div><a class="btn" href="summary.html">Are We Happy?</a></div>
             </nav>
         </header>
 
@@ -52,17 +48,25 @@
 
             <!-- Summary -->
             <section class="col col-12">
-                <p style="margin-bottom:30px">The <a href="https://www.kaggle.com/unsdsn/world-happiness">World Happiness Report</a>
-                    reported by the U.N. is a survey of global happiness that ranks 156 countries by how happy their citizens perceive
-                    themselves to be. The ranks and scores use data from the 2015-2019 Gallup World Polls. The scores are based on the
-                    extent to which six main factors – 1. Economy, 2. Family, 3. Health, 4. Freedom, 5. Trust (in Government), 
-                    6. Generosity, plus Residual factors – contribute to an overall Happiness Score. 
+                <p style="margin-bottom:35px">The <a href="https://www.kaggle.com/unsdsn/world-happiness">World
+                        Happiness Report</a>
+                    reported by the U.N. is a survey of global happiness that ranks 156 countries by how happy their
+                    citizens perceive
+                    themselves to be. The ranks and scores use data from the 2015-2019 Gallup World Polls. The scores
+                    are based on the
+                    extent to which six main factors – Economy (GDP), Family (Social Support), Health (Life Expectancy),
+                    Freedom, Trust
+                    (Government Corruption), Generosity, plus residual factors – contribute to overall happiness. This
+                    overview of the
+                    report analyzes each factor and provides an interactive world map to view how the people of each
+                    country perceive their
+                    own happiness.
                 </p>
             </section>
 
             <!-- Bubble Chart -->
             <section id="bubblechart" class="col col-12">
-                <h4>Happiness Score v. Happiness Factor</h4>
+                <h4>Relationship of Individual Happiness Factors</h4>
                 <div style="text-align:center" id="bubble"></div>
                 <form>
                     <select name="year" id="year" class="bubbleyear">
@@ -74,7 +78,7 @@
                             <option value="2015">2015</option>
                         </optgroup>
                     </select>
-                    <em>Happiness Score v.</em>
+                    <em>Happiness Score V.</em>
                     <select name="factor2" id="factor2" class="happiness-factor">
                         <option value="Economy">Economy</option>
                         <option value="Family">Family</option>
@@ -84,7 +88,7 @@
                         <option value="Generosity">Generosity</option>
                         <option value="Dystopia_Residual">Residual</option>
                     </select>
-                    <!-- <button class="btn">View</button> -->
+                    <button class="btn">View</button>
                 </form>
                 <center>
                     <h5> Hover over a region in the legend to see its position on the chart. Bubble size corresponds to
@@ -92,7 +96,7 @@
                         country's overall happiness score. </h5>
                 </center>
 
-                <h4>Economy</h4>
+                <h3>Economy</h3>
                 <p>
                     Across all years in the data set, Economy, as measured by GDP per capita, correlates most highly
                     with
@@ -101,7 +105,7 @@
 
                 </p>
 
-                <h4>Family</h4>
+                <h3>Family</h3>
                 <p>
                     Family measures the average of responses to the yes/no question "If you were in trouble, do you have
                     relatives or friends you can count on to help you whenever you need them?" There is less variance
@@ -111,7 +115,7 @@
 
                 </p>
 
-                <h4>Health</h4>
+                <h3>Health</h3>
                 <p>
                     Health, as measured by life expectency, is highly correlated to overall happiness. As with Economy,
                     Australia and New Zealand, North America, Western Europe, and parts of Central and Eastern Europe,
@@ -121,7 +125,7 @@
                     Sub-Saharan Africa.
                 </p>
 
-                <h4>Freedom</h4>
+                <h3>Freedom</h3>
                 <p>
                     Freedom, like Health, measures the average response to the yes/no question "Are you satisfied or
                     dissatisfied with your freedom to choose what you do with your life?", and does not correlate as
@@ -133,7 +137,7 @@
 
                 </p>
 
-                <h4>Trust</h4>
+                <h3>Trust</h3>
                 <p>
                     Trust measures answers to the yes/no question "Is corruption widespread throughout the government
                     (or businesses)?". The data shows a very weak correlation between Trust and Overall Happiness. The
@@ -142,7 +146,7 @@
 
                 </p>
 
-                <h4>Generosity</h4>
+                <h3>Generosity</h3>
 
                 <p>
                     Generosity scores are calculated through a regression analysis of the average of yes/no answers to
@@ -152,7 +156,7 @@
 
                 </p>
 
-                <h4>Dystopia Residual</h4>
+                <h3>Dystopia Residual</h3>
                 <p>
                     A country's Dystopia Residual accounts for those factors which contribute to Overall Happiness but
                     are not captured in any of the above categories. It is calculated by substracting each score in the
@@ -168,10 +172,11 @@
 
         <!-- Footer -->
         <footer class="row">
-            <p>&copy;2020 Bryan Domogalla, Ellen Hsu, and Rachel Hunter - University of Oregon Data Analytics Boot Camp.<br>
+            <p>&copy;2020 Bryan Domogalla, Ellen Hsu, and Rachel Hunter - University of Oregon Data Analytics Boot
+                Camp.<br>
                 The complete <a href="https://worldhappiness.report/ed/2019/changing-world-happiness/">World Happiness
-                Report</a> is produced by the United Nations Sustainable Development Solutions Network in partnership with 
-                the Ernesto Illy Foundation.</p>
+                    Report</a> is produced by the United Nations Sustainable Development Solutions Network in
+                partnership with the Ernesto Illy Foundation.</p>
         </footer>
 
     </div>
