@@ -1,7 +1,7 @@
 # World Happiness Visualizations
 by Bryan Domogalla, Ellen Hsu, Rachel Hunter
 
-## Project Summary
+### Project Summary
 The World Happiness Report is a survey of global happiness reported by the United Nations (from 2015-2019). The overall Happiness Score includes measures of: Family, Health (Life Expectancy), Freedom, Trust (Government Corruption), Generosity, and Dystopia Residual - which is a residual to account for the difference in the sum of all the factors compared to the Happiness Score. 
 
 We built interactive visualizations to show how these factors compare to happiness scores for each country and region; how the factors correlate to one another; and a world map with all rankings and scores on a scale.
@@ -28,5 +28,7 @@ https://ellemonke.github.io/full-stack-project/
 - World Map (Google Charts)
 - Summary Report
 
-
+### Screenshots
+<kbd><img src="screenshots/screenshot_full_stack_1.png"></kbd><kbd><img src="screenshots/screenshot_full_stack_3.png"></kbd><br />
+<kbd><img src="screenshots/screenshot_full_stack_2.png"></kbd>
 
