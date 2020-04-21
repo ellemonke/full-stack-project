@@ -29,6 +29,6 @@ https://ellemonke.github.io/full-stack-project/
 - Summary Report
 
 ### Screenshots
-<kbd><img src="screenshots/screenshot_full_stack_1.png" width="430" /></kbd><kbd><img src="screenshots/screenshot_full_stack_3.png" width="430" /></kbd><br />
-<kbd><img src="screenshots/screenshot_full_stack_2.png" width="430" /></kbd>
+<kbd><img src="screenshots/screenshot_full_stack_1.png"></kbd><kbd><img src="screenshots/screenshot_full_stack_3.png"></kbd><br />
+<kbd><img src="screenshots/screenshot_full_stack_2.png"></kbd><kbd><img src="screenshots/screenshot_full_stack_4.png"></kbd><br />
 
